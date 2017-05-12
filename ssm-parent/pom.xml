@@ -75,23 +75,23 @@
 				<version>${mybatis.spring.version}</version>
 			</dependency>
 			<!-- 分页助手 -->
-              <dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>3.7.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.jsqlparser</groupId>
-			<artifactId>jsqlparser</artifactId>
-			<version>0.9.1</version>
-		</dependency>
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>3.7.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jsqlparser</groupId>
+				<artifactId>jsqlparser</artifactId>
+				<version>0.9.1</version>
+			</dependency>
 
-		<!-- 通用Mapper -->
-		<dependency>
-			<groupId>com.github.abel533</groupId>
-			<artifactId>mapper</artifactId>
-			<version>2.3.4</version>
-		</dependency>
+			<!-- 通用Mapper -->
+			<dependency>
+				<groupId>com.github.abel533</groupId>
+				<artifactId>mapper</artifactId>
+				<version>2.3.4</version>
+			</dependency>
 			<!-- MySql -->
 			<dependency>
 				<groupId>mysql</groupId>
@@ -164,22 +164,21 @@
 				<version>${commons-io.version}</version>
 			</dependency>
 
-	<!-- 添加Shiro支持 -->
-  	<dependency>
-	    <groupId>org.apache.shiro</groupId>
-	    <artifactId>shiro-core</artifactId>
-	    <version>1.2.5</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.shiro</groupId>
-	    <artifactId>shiro-web</artifactId>
-	    <version>1.2.5</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.shiro</groupId>
-	    <artifactId>shiro-spring</artifactId>
-	    <version>1.2.5</version>
-	</dependency>
+			<!-- 添加Shiro支持 -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-all</artifactId>
+				<version>1.2.5</version>
+
+			</dependency>
+
+
+			<!-- 二级缓存 -->
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-core</artifactId>
+				<version>2.6.11</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
