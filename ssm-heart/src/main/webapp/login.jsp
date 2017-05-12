@@ -172,6 +172,7 @@ a {
 			$("#right_hand").attr("style", "right:-112px;top:-12px");
 		});
 	});
+	
 	function checkForm() {
 		var username = $("#username").val();
 		var password = $("#password").val();
@@ -185,11 +186,14 @@ a {
 		}
 		return true;
 	}
+	
+	
+	
 </SCRIPT>
 </head>
 <body>
 	<DIV class="top_div"></DIV>
-	<form action="${pageContext.request.contextPath}/blogger/login.do"
+	<form action="${pageContext.request.contextPath}/rest/login/login"
 		method="post" onsubmit="return checkForm()">
 		<DIV
 			style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">
@@ -201,12 +205,12 @@ a {
 			<P style="padding: 30px 0px 10px; position: relative;">
 				<SPAN class="u_logo"></SPAN> 
 				<INPUT id="username" name="username" class="ipt" type="text" 
-					placeholder="请输入用户名" value="${blogger.username }">
+					placeholder="请输入用户名" value="${sysuser.name }">
 			</P>
 			<P style="position: relative;">
 				<SPAN class="p_logo"></SPAN> 
 				<INPUT id="password" name="password" class="ipt" type="password" 
-					placeholder="请输入密码" value="${blogger.password }">
+					placeholder="请输入密码" value="${sysuser.password }">
 			</P>
 			<DIV
 				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
@@ -217,7 +221,7 @@ a {
 						style="float: right;"> 
 						<input type="submit"
 						style="background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;"
-						value="登录" />
+						value="登录"  id="login"/>
 					</SPAN>
 				</P>
 			</DIV>

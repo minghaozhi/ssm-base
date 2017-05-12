@@ -8,22 +8,22 @@
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<!-- Single realm app. If you have multiple realms, use the 'realms' property 
 			instead. -->
-		<property name="realm" ref="authRealm" /><!-- 引用自定义的realm -->
+		<property name="realm" ref="ShiroDbRealm" /><!-- 引用自定义的realm -->
 		<!-- 二级缓存 -->
 		<property name="cacheManager" ref="shiroEhcacheManager" />
 	</bean>
 
 	<!--Realm域配置 -->
 	<!-- 自定义权限认证 -->
-	<bean id="authRealm" class="com.sheshu.web.shiro.AuthRealm">
-		<property name="userService" ref="sysUsersService"></property>
+	<bean id="ShiroDbRealm" class="com.ssm.shiro.ShiroDbRealm">
+		<property name="userService" ref="userService"></property>
 		<!-- 自定义密码加密算法 -->
 		<property name="credentialsMatcher" ref="passwordMatcher" />
 	</bean>
 
 	<!--密码比较器的配置 -->
 	<!-- 设置密码加密策略 md5hash -->
-	<bean id="passwordMatcher" class="com.sheshu.web.shiro.CustomCredentialsMatcher" />
+	<bean id="passwordMatcher" class="com.ssm.shiro.CustomCredentialsMatcher" />
 
 	 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>

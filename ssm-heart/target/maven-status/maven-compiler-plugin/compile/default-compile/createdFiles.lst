@@ -1,3 +1,10 @@
-com\ssm\pojo\sysuser.class
+com\ssm\shiro\Encrypt.class
+com\ssm\shiro\CustomCredentialsMatcher.class
+com\ssm\service\impl\UserServiceImpl.class
+com\ssm\shiro\ShiroDbRealm.class
+com\ssm\mapper\UserMapper.class
+com\ssm\pojo\Sysuser.class
+com\ssm\service\UserService.class
 com\ssm\pojo\BasePojo.class
 com\ssm\controller\LoginController.class
+com\ssm\common\CipherUtil.class
