@@ -53,7 +53,7 @@
 		<property name="realm" ref="myRealm" />
 	</bean>
 <!-- 項目自定义的Realm -->
-	<bean id="shiroDbRealm" class="com.lin.realm.ShiroDbRealm">
+	<bean id="shiroDbRealm" class="com.ssm.realm.ShiroDbRealm">
 		<property name="cacheManager" ref="cacheManager" />
 	</bean>
 	<!-- Shiro过滤器 -->
