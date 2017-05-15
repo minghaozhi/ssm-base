@@ -14,6 +14,14 @@ public abstract class BasePojo implements Serializable{
 	
 	private Date createTime;
 	private Date updateTime;
+
+
+	private Long createBy;
+	private Long updateBy;
+
+	private String createName;
+	private String updateName;
+
 	
 
 	//是否废弃
@@ -36,7 +44,37 @@ public abstract class BasePojo implements Serializable{
 	}
 
 
+	public Long getCreateBy() {
+		return createBy;
+	}
 
+	public void setCreateBy(Long createBy) {
+		this.createBy = createBy;
+	}
+
+	public Long getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy(Long updateBy) {
+		this.updateBy = updateBy;
+	}
+
+	public String getCreateName() {
+		return createName;
+	}
+
+	public void setCreateName(String createName) {
+		this.createName = createName;
+	}
+
+	public String getUpdateName() {
+		return updateName;
+	}
+
+	public void setUpdateName(String updateName) {
+		this.updateName = updateName;
+	}
 
 	public Integer getIsActivited() {
 		return isActivited;
