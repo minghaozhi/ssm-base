@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body{
+	background-image: radial-gradient(500px 500px at 50% 50%, rgba(255, 255, 255, 0.09) 0%, rgba(0, 0, 0, 0) 100%), repeating-linear-gradient(0deg, rgba(70, 70, 70, 0.5) 0px, rgba(70, 70, 70, 0.5) 1px, rgba(40, 41, 45, 0.9) 1px, rgba(40, 41, 45, 0.9) 24px), repeating-linear-gradient(90deg, rgba(60, 60, 60, 0.7) 0px, rgba(60, 60, 60, 0.7) 0px, #1E1F21 1px, #1E1F21 24px);
+}
+.panel{
+	position: relative;
+	margin: 15px 15px 15px 15px;
+	border: 0;
+	background:rgba(89, 90, 90, 0.3)
+}
+.panel-header{
+	font-size: 22px;
+	color: #b5b5b6;
+	border: 1px solid rgb(91, 91, 94);
+	background-image: repeating-linear-gradient(-45deg, #28282C 0px, #28282C 2px, transparent 3px, transparent 5px, #28282C 6px),repeating-linear-gradient(45deg, #0F1011 0px, #0F1011 2px, #28282C 3px, #28282C 5px, #0F1011 6px);
+}
+
+.charts{
+
+	min-height: 280px;
+}
+
+/*页面表格*/
+.left {
+	float: left;
+	width: 25%;
+	margin-left: 30px;
+}
+.center {
+	position: absolute;
+	min-height: 500px;
+	left:22%;
+	right: 22%;
+}
+.right {
+	float: right;
+	width: 25%;
+	margin-right: 30px;
+}
+/*地图部分*/
+#mapChart{
+	margin-top: 15px;
+	width: 100%;
+	min-height: 700px;
+}
