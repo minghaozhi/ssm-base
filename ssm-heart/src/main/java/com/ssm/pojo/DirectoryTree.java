@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by 墨殇 on 2017/5/15.
  */
 @Table(name = "sys_directory_tree")
-public class DirectoryTree {
+public class DirectoryTree extends BasePojo{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
