@@ -3,10 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ssm博客系统</title>
-<script
-	src="${pageContext.request.contextPath}/static/js/jquery-1.11.2.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <STYLE>
 body {
 	background: #ebebeb;
