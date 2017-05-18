@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ssm博客系统</title>
-<script
-	src="${pageContext.request.contextPath}/static/js/jquery-1.11.2.min.js"></script>
-<STYLE>
+
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<STYLE>
 body {
 	background: #ebebeb;
 	font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei",
