@@ -73,7 +73,7 @@ private UserService userService;
 			
 			subject.getSession().setTimeout(28800000);
 
-			return "home";
+			return "homePage";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
