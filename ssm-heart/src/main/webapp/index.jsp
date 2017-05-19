@@ -8,7 +8,7 @@
 </head>
 <body>
  	<script type="text/javascript">
-			window.top.location.href="login.jsp";
+			window.top.location.href="login.html";
 		</script>
 </body>
 </html>
