@@ -8,4 +8,6 @@ public interface UserService {
 	public Sysuser get(Long id);
 
 	public Sysuser findUserByLoginName(String username);
+
+    public boolean register(String name, String password);
 }
