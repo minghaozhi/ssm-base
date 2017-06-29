@@ -24,11 +24,11 @@ public class SysUserController {
     @RequestMapping(value="register",method= RequestMethod.POST)
     public String register(Sysuser sysuser, HttpServletRequest req){
 
-        String name=req.getParameter("username");
+        String name=sysuser.getName();
         System.out.println("======================");
         System.out.println(name);
-        String password=req.getParameter("password");
-        boolean register = userService.register(name,password);
+
+        boolean register = userService.register(sysuser);
         if(register){
             return "index";
         }

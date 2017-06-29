@@ -9,5 +9,5 @@ public interface UserService {
 
 	public Sysuser findUserByLoginName(String username);
 
-    public boolean register(String name, String password);
+    public boolean register(Sysuser sysuser);
 }

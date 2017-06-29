@@ -30,12 +30,13 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean register(String name, String password) {
-		Sysuser sysuser=new Sysuser();
-		sysuser.setName(name);
-		sysuser.setPassword(password);
+	public boolean register(Sysuser sysuser) {
+
 		sysuser.setCreateTime(new Date());
 		sysuser.setUpdateTime(new Date());
+		sysuser.setIsActivited(0);
+		sysuser.setCreateName(sysuser.getName());
+		sysuser.setUpdateName(sysuser.getName());
 		this.userMapper.insert(sysuser);
 		return true;
 	}
