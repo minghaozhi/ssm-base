@@ -17,14 +17,16 @@ public class Sysuser extends BasePojo implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//主键自动生成策略
 	private Long id;
 
-   //姓名
-	private String name;
+   //登录名
+	private String loginName;
+	//真实姓名
+	private String realName;
 	//密码
 	private String password;
 	//年龄
 	private Integer age;
 	//性别
-	private Integer sex;
+	private String sex;
 	
 	//生日
 	private Date birthday;
@@ -37,13 +39,7 @@ public class Sysuser extends BasePojo implements Serializable{
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public String getPassword() {
 		return password;
@@ -61,11 +57,28 @@ public class Sysuser extends BasePojo implements Serializable{
 		this.age = age;
 	}
 
-	public Integer getSex() {
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex(Integer sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 
