@@ -1,5 +1,6 @@
 package com.ssm.service.impl;
 
+import com.ssm.common.CryptographyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,19 +25,20 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Sysuser findUserByLoginName(String username) {
 	Sysuser param=new Sysuser();
-	param.setName(username);
+	param.setLoginName(username);
 	Sysuser sysuser=this.userMapper.selectOne(param);
 		return sysuser;
 	}
 
 	@Override
 	public boolean register(Sysuser sysuser) {
-
+      String password= CryptographyUtil.md5(sysuser.getPassword(),sysuser.getLoginName());
+      sysuser.setPassword(password);
 		sysuser.setCreateTime(new Date());
 		sysuser.setUpdateTime(new Date());
 		sysuser.setIsActivited(0);
-		sysuser.setCreateName(sysuser.getName());
-		sysuser.setUpdateName(sysuser.getName());
+		sysuser.setCreateName(sysuser.getRealName());
+		sysuser.setUpdateName(sysuser.getRealName());
 		this.userMapper.insert(sysuser);
 		return true;
 	}
