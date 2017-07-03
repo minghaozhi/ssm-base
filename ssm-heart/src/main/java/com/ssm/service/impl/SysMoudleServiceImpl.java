@@ -17,10 +17,11 @@ public class SysMoudleServiceImpl implements SysMoudleService{
     @Autowired
     private SysMoudleMapper sysMoudleMapper;
     @Override
-    public List<SysMoudle> findAllMoudle() {
+    public List<SysMoudle> findAllMoudle(Long parentId) {
         Example example=new Example(SysMoudle.class);
         Example.Criteria criteria=example.createCriteria();
         criteria.andEqualTo("isActivited",0);
+        criteria.andEqualTo("parentId",parentId);
         List<SysMoudle> list=this.sysMoudleMapper.selectByExample(example);
         return list;
     }
