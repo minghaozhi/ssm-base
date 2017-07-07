@@ -30,11 +30,11 @@ private UserService userService;
     	
     	
     	if(obj!=null){
-    		return "index";
+    		return "index.html";
     	}
     	
     	
-		return "login";
+		return "login.html";
     	
     }
 	
@@ -73,7 +73,7 @@ private UserService userService;
 			
 			subject.getSession().setTimeout(28800000);
 
-			return "index";
+			return "index.html";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,7 +81,7 @@ private UserService userService;
 			//当登录失败时抛出此异常
 			request.setAttribute("errorInfo", "对不起用户名或密码错误！"); 
 			
-			return "login";
+			return "login.html";
 		}
     	
     }
