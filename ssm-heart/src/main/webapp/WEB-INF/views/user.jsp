@@ -58,7 +58,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/admin/customer/js/bootstrap-table-fixed-columns.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/js/customer.js"></script>
+	src="${pageContext.request.contextPath}/js/user.js"></script>
 </body>
 <body>
 	<table>
@@ -124,123 +124,51 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">客户信息添加</h4>
+						<h4 class="modal-title" id="userAdd">添加用户</h4>
 					</div>
 					<div class="modal-body">
-						<table cellspacing="8px">
+						<table cellspacing="2px">
 							<tr>
 								<td>客户名称：</td>
-								<td><input type="text" class="form-control" name="name"
-									placeholder="请输入客户名称"></td>
+								<td><input type="text" class="form-control" name="loginName"
+									placeholder="请输入登陆名称"></td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>客户地区:</td>
-								<td><input type="text" class="form-control" name="area"
-									placeholder="用户地区"></td>
+								<td>姓名:</td>
+								<td><input type="text" class="form-control" name="realName"
+									placeholder="姓名"></td>
 							</tr>
 							<tr>
-								<td>客户经理：</td>
-								<td><select name="cusManager" id="cusManagers"
-									class="form-control">
-										<option value="">请选择客户经理</option>
+								<td>密码：</td>
+								<td><input type="text" class="form-control" name="password"
+										   placeholder="请输入密码"></td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td>年龄:</td>
+								<td><input type="text" class="form-control" name="age"
+										   placeholder=""></td>
+							</tr>
+							<tr>
+								<td>性别：</td>
+								<td><select name="sex" id="sex"
+											class="form-control" >
+									<option value="男">男</option>
+									<option value="女">女</option>
 
 								</select></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>客户等级：</td>
-								<td><select id="levels" name="level" class="form-control">
-										<option value="">请选择客户等级</option>
-
-								</select></td>
-							</tr>
-							<tr>
-								<td>客户满意度：</td>
-								<td><select name="myd" class="form-control">
-										<option value="☆☆☆☆☆">☆☆☆☆☆</option>
-										<option value="☆☆☆☆">☆☆☆☆</option>
-										<option value="☆☆☆">☆☆☆</option>
-										<option value="☆☆">☆☆</option>
-										<option value="☆">☆</option>
-								</select></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>客户信用度：</td>
-								<td><select name="xyd" class="form-control">
-										<option value="☆☆☆☆☆">☆☆☆☆☆</option>
-										<option value="☆☆☆☆">☆☆☆☆</option>
-										<option value="☆☆☆">☆☆☆</option>
-										<option value="☆☆">☆☆</option>
-										<option value="☆">☆</option>
-								</select></td>
+								<td>生日：</td>
+								<td>  <input type="date" class="form-control"  required="" name="birthday">
 							</tr>
 
-							<tr>
-								<td>邮政编码：</td>
-								<td><input type="text" class="form-control" name="postCode"
-									placeholder="请输入邮编"></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>联系电话：</td>
-								<td><input type="text" class="form-control" name="phone"
-									placeholder="联系电话"></td>
-							</tr>
-							<tr>
-
-								<td>客户地址：</td>
-								<td colspan="4"><input type="text" class="form-control"
-									name="address" placeholder="客户地址"></td>
-							</tr>
-							<!-- sdas -->
-							<tr>
-								<td>营业执照号注册号：</td>
-								<td><input type="text" class="form-control" name="yyzzzch"
-									placeholder="营业执照号注册号"></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>法人：</td>
-								<td><input type="text" class="form-control" name="fr"
-									placeholder="法人"></td>
-
-
-							</tr>
-
-							<tr>
-								<td>注册资金：</td>
-								<td><input type="text" class="form-control" name="zczj"
-									placeholder="请输入注册资金"></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>年营业额：</td>
-								<td><input type="text" class="form-control" name="nyye"
-									placeholder="年营业额"></td>
-
-
-							</tr>
-
-							<tr>
-								<td>开户银行：</td>
-								<td><input type="text" class="form-control" name="khyh"
-									placeholder="银行"></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>开户账号：</td>
-								<td><input type="text" class="form-control" name="khzh"
-									placeholder="开户账号"></td>
-
-
-							</tr>
-							<tr>
-								<td>地税登记号：</td>
-								<td><input type="text" class="form-control" name="dsdjh"
-									placeholder="地税登记号"></td>
-								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-								<td>国税登记号：</td>
-								<td><input type="text" class="form-control" name="gsdjh"
-									placeholder="国税登记号"></td>
-							</tr>
 						</table>
 
 					</div>
 					<div class="modal-footer">
+						<button type="submit" id="btn_submit1" class="btn btn-primary">
+							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+						</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
 						</button>
-						<button type="submit" id="btn_submit" class="btn btn-primary">
-							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
-						</button>
+
 					</div>
 				</div>
 			</div>

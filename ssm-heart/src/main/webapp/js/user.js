@@ -24,7 +24,7 @@ $(function(){
 })
 function initData(){
     $('#table').bootstrapTable({
-        url: "../customer/customer.controller",
+        url: "../sysUser/findUser",
         sortOrder: 'desc',
         pagination: true,
         pageNumber: 1,
@@ -68,6 +68,16 @@ function initData(){
             {
                 field: 'birthday',
                 title: '生日',
+                formatter:function(value,row,index){
+                    var time=row.birthday;
+                    if(time==null){
+                        return "";
+                    }else{
+                        var rq=new Date(time);
+                        return rq.toLocaleDateString();
+                    }
+                }
+
             },{
                 field: 'age',
                 title: '年龄',

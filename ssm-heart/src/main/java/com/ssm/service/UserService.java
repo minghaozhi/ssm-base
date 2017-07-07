@@ -1,6 +1,9 @@
 package com.ssm.service;
 
 import com.ssm.pojo.Sysuser;
+import com.ssm.pojo.vo.QueryVo;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -10,4 +13,8 @@ public interface UserService {
 	public Sysuser findUserByLoginName(String username);
 
     public boolean register(Sysuser sysuser);
+
+   public  Integer getTotal(QueryVo<Sysuser> vo);
+
+public 	List<Sysuser> findUser(QueryVo<Sysuser> vo);
 }
