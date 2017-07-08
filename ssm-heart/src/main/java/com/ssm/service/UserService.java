@@ -1,7 +1,8 @@
 package com.ssm.service;
 
 import com.ssm.pojo.Sysuser;
-import com.ssm.pojo.vo.QueryVo;
+import com.ssm.pojo.QueryVo;
+
 
 import java.util.List;
 

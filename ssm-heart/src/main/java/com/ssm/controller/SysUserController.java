@@ -1,7 +1,7 @@
 package com.ssm.controller;
 
 import com.ssm.pojo.Sysuser;
-import com.ssm.pojo.vo.QueryVo;
+import com.ssm.pojo.QueryVo;
 import com.ssm.service.UserService;
 import com.ssm.util.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * Created by 墨殇 on 2017/5/19.

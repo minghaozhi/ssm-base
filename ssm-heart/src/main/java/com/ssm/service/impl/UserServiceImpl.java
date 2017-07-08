@@ -2,9 +2,9 @@ package com.ssm.service.impl;
 
 import com.github.abel533.entity.Example;
 import com.ssm.common.CryptographyUtil;
-import com.ssm.pojo.vo.QueryVo;
+import com.ssm.pojo.QueryVo;
 import com.ssm.util.UtilFuns;
-import net.sf.ehcache.search.expression.Criteria;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
