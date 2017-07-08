@@ -82,9 +82,9 @@ function initData(){
 }
 
 function sousuo(){
-    var khno=$('#khno').val();
-    var name=$('#name').val();
-    $('#table').bootstrapTable('refresh',{url: '../customer/customer.controller?khno='+khno+'&name='+name+''});
+    var realName=$('#realName').val();
+    var loginName=$('#loginName').val();
+    $('#table').bootstrapTable('refresh',{url: '../sysUser/findUser?loginName='+loginName+'&realName='+realName+''});
 }
 function goUpdate(id){
 
