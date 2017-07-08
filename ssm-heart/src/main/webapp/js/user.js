@@ -27,21 +27,16 @@ function initData(){
         url: "../sysUser/findUser",
         sortOrder: 'desc',
         pagination: true,
-        pageNumber: 1,
-        pageSize: 5,
-        pageList: [5,8, 10,],
         dataType: "json",
         pagination: true, //分页
         singleSelect: false,
         sidePagination: "server", //服务端处理分页
-        clickToSelect: true,//是否启用点击选中行
-        //showToggle: true,  //是否显示详细视图和列表视图的切换按钮
         //cardView: false,
+        pageNumber: 1,
+        pageSize: 10,
+        pageList: [10, 20, 50],
 
-        showPaginationSwitch : true,//选中行记录
-        //冻结列
-        fixedColumns:true,
-        fixedNumber:5,
+
         columns: [
             {
                 field: 'ck',
@@ -289,9 +284,7 @@ function openCustomerOrder(){
             url: "../customer/selectOrderByCusid.controller?cusId=" + id,
             sortOrder: 'desc',
             pagination: true,
-            pageNumber: 1,
-            pageSize: 5,
-            pageList: [5, 10, 20],
+
             dataType: "json",
             pagination: true, //分页
             singleSelect: false,

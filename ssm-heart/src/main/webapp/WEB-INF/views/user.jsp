@@ -63,32 +63,19 @@
 <body>
 	<table>
 		<tr>
-			<td>客户编号：</td>
-			<td><input type="text" class="form-control" id="khno"
-				placeholder="客户编号"></td>
+			<td>登录名称：</td>
+			<td><input type="text" class="form-control" id="loginName"
+				placeholder="登录名称"></td>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td>客户名称：</td>
-			<td><input type="text" class="form-control" id="name"
-				placeholder="客户名称"></td>
+			<td>真实姓名：</td>
+			<td><input type="text" class="form-control" id="realName"
+				placeholder="真实姓名"></td>
 			<td><a href="javascript:sousuo();"><button type="button"
 						class="btn btn-primary">搜索</button></a></td>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 
 
-			<td><a href="javascript:openCustomerOrder()"><button
-						type="button" class="btn btn-primary">历史订单查看</button></a></td>
 
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-			<td><a href="javascript:lxrgl()"><button type="button"
-						class="btn btn-primary">联系人管理</button></a></td>
-
-
-			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-
-			<td><a href="javascript:JWJLGL()"><button type="button"
-						class="btn btn-primary">交往记录管理</button></a></td>
 		</tr>
 
 	</table>
@@ -96,14 +83,14 @@
 		role="group">
 		<button type="button" class="btn btn-outline btn-default btn-primary"
 			id="getAddDlg" data-toggle="modal" data-target="#myModals">
-			<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+			<i class="glyphicon glyphicon-plus" aria-hidden="true">添加</i>
 		</button>
-		<button type="button" class="btn btn-outline btn-default btn-primary">
-			<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+		<button type="button" class="btn btn-outline btn-default btn-primary"  id="update1" data-target="#update" data-toggle="modal">
+			<i class=" glyphicon glyphicon-pencil" aria-hidden="true">修改</i>
 		</button>
 		<button type="button" onclick="deleteById()"
 			class="btn btn-outline btn-default btn-primary">
-			<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+			<i class=" glyphicon glyphicon-alert" aria-hidden="true">删除</i>
 		</button>
 	</div>
 	<table id="table"></table>
@@ -175,8 +162,8 @@
 		</form>
 	</div>
 	<!--  更新操作 -->
-	<div class="modal fade" id="myUpdateModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="update" tabindex="-1" role="dialog"
+		aria-labelledby="update" aria-hidden="true">
 		<form
 			action="${pageContext.request.contextPath}/customer/updateCustomer.controller"
 			method="post">
@@ -415,48 +402,6 @@
 
 		</div>
 	</div>
-
-
-<!-- 交往记录管理 -->
-	<div class="modal fade" id="jwjlgl" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" style="width: 700px;">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel1">客户交往记录管理</h4>
-				</div>
-				<input name="khno" id="khno1" type="hidden"> <input
-					name="webSite" id="webSite1" type="hidden"> <input
-					name="fax" id="fax1" type="hidden"> <input name="id" id="id1"
-					type="hidden">
-				<div class="modal-body">
-					<table>
-						<tr>
-							<td>客户编号：</td>
-							<td><input class="form-control" type="text" 
-								 id="example-c1" readonly></td>
-							<td>客户名称：</td>
-							<td><input class="form-control" type="search" 
-								 id="example-s1" readonly></td>
-						</tr>
-					</table>
-
-					<button type="button"
-						class="btn btn-outline btn-default btn-primary" id="getAddDlg1"
-						data-toggle="modal" data-target="#myModal">
-						<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-					</button>
-					<button type="button" onclick="deleteById()"
-						class="btn btn-outline btn-default btn-primary">
-						<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-					</button>
-					<table id="planTablea"></table>
-
-
-				</div>
-			</div>
 
 
 
