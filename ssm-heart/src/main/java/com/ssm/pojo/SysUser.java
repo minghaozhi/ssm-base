@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="sys_user")
-public class Sysuser extends BasePojo implements Serializable{
+public class SysUser extends BasePojo implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//id

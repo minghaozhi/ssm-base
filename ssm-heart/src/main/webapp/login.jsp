@@ -205,12 +205,12 @@ a {
 			<P style="padding: 30px 0px 10px; position: relative;">
 				<SPAN class="u_logo"></SPAN> 
 				<INPUT id="username" name="username" class="ipt" type="text" 
-					placeholder="请输入用户名" value="${sysuser.name }">
+					placeholder="请输入用户名" value="${sysUser.name }">
 			</P>
 			<P style="position: relative;">
 				<SPAN class="p_logo"></SPAN> 
 				<INPUT id="password" name="password" class="ipt" type="password" 
-					placeholder="请输入密码" value="${sysuser.password }">
+					placeholder="请输入密码" value="${sysUser.password }">
 			</P>
 			<DIV
 				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">

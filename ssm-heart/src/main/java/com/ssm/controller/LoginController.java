@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ssm.common.UserLocal;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ssm.common.CryptographyUtil;
-import com.ssm.pojo.Sysuser;
+import com.ssm.pojo.SysUser;
 import com.ssm.service.UserService;
 
 @Controller
@@ -50,7 +48,7 @@ private UserService userService;
     		HttpServletRequest request,HttpServletResponse response){
 
     	//判断用户是否已经禁用
-    	Sysuser user = this.userService.findUserByLoginName(username);
+    	SysUser user = this.userService.findUserByLoginName(username);
     	
     
     	
@@ -68,7 +66,7 @@ private UserService userService;
 			
 			
 			//登录成功后，就可以在shiro中取对象
-			user = (Sysuser) subject.getPrincipal();
+			user = (SysUser) subject.getPrincipal();
 			//将登录信息放入session中
 			subject.getSession().setAttribute("user", user);
 			UserLocal.setUser(user);

@@ -1,6 +1,6 @@
 package com.ssm.controller;
 
-import com.ssm.pojo.Sysuser;
+import com.ssm.pojo.SysUser;
 import com.ssm.pojo.QueryVo;
 import com.ssm.service.UserService;
 import com.ssm.util.MessageResult;
@@ -39,13 +39,13 @@ public class SysUserController {
      */
 
     @RequestMapping(value="register",method= RequestMethod.POST)
-    public String register(Sysuser sysuser){
+    public String register(SysUser sysUser){
 
-        String name=sysuser.getLoginName();
+        String name= sysUser.getLoginName();
         System.out.println("======================");
         System.out.println(name);
 
-        boolean register = userService.register(sysuser);
+        boolean register = userService.register(sysUser);
         if(register){
             return "index";
         }
@@ -58,20 +58,20 @@ public class SysUserController {
     }
     @RequestMapping(value = "findUser")
     @ResponseBody
-    public Paging<Sysuser> list(QueryVo<Sysuser> vo,Sysuser sysuser, Integer limit, Integer offset) throws Exception{
+    public Paging<SysUser> list(QueryVo<SysUser> vo, SysUser sysUser, Integer limit, Integer offset) throws Exception{
 
-     vo.setEntity(sysuser);
-     if(sysuser.getLoginName()!=null&&sysuser.getRealName()!=null) {
-         sysuser.setLoginName(new String(sysuser.getLoginName().getBytes("iso-8859-1"), "utf-8"));
-         sysuser.setRealName(new String(sysuser.getRealName().getBytes("iso-8859-1"), "utf-8"));
+     vo.setEntity(sysUser);
+     if(sysUser.getLoginName()!=null&& sysUser.getRealName()!=null) {
+         sysUser.setLoginName(new String(sysUser.getLoginName().getBytes("iso-8859-1"), "utf-8"));
+         sysUser.setRealName(new String(sysUser.getRealName().getBytes("iso-8859-1"), "utf-8"));
 
      }  Integer total = userService.getTotal(vo);
-        Paging<Sysuser> paging = new Paging<Sysuser>();
+        Paging<SysUser> paging = new Paging<SysUser>();
         paging.setTotal(total);
         vo.setStartSize(offset);
         vo.setPageSize(limit);
 
-        List<Sysuser> list = userService.findUser(vo);
+        List<SysUser> list = userService.findUser(vo);
         paging.setRows(list);
         return paging;
     }
@@ -79,10 +79,10 @@ public class SysUserController {
 
 
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
-    public ResponseEntity<MessageResult> addUser(Sysuser sysuser){
+    public ResponseEntity<MessageResult> addUser(SysUser sysUser){
         MessageResult result=null;
         try {
-            Integer count = this.userService.add(sysuser);
+            Integer count = this.userService.add(sysUser);
             if(count>0){
                 result = new MessageResult(0, "添加成功！");
             }else{

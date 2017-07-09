@@ -1,7 +1,7 @@
 package com.ssm.interceptor;
 
 import com.ssm.common.UserLocal;
-import com.ssm.pojo.Sysuser;
+import com.ssm.pojo.SysUser;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +21,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 			throws Exception {
 		
 		//获取当前登录的用户信息
-		Sysuser user = (Sysuser) request.getSession().getAttribute("user");
+		SysUser user = (SysUser) request.getSession().getAttribute("user");
 
 		//判断用户是否登录
 		if(user==null){

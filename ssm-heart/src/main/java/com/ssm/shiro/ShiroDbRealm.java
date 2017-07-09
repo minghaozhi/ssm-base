@@ -3,6 +3,7 @@ package com.ssm.shiro;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ssm.pojo.SysUser;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -13,7 +14,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import com.ssm.pojo.Sysuser;
 import com.ssm.service.UserService;
 
 
@@ -58,7 +58,7 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;  
 
 		// 2,调用业务代码进行查询
-		 Sysuser user = userService.findUserByLoginName(upToken.getUsername());
+		 SysUser user = userService.findUserByLoginName(upToken.getUsername());
 
 //		 System.out.println(user);
 		 

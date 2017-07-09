@@ -4,6 +4,7 @@ import com.github.abel533.entity.Example;
 import com.ssm.common.CryptographyUtil;
 import com.ssm.common.UserLocal;
 import com.ssm.pojo.QueryVo;
+import com.ssm.pojo.SysUser;
 import com.ssm.shiro.Encrypt;
 import com.ssm.util.UtilFuns;
 
@@ -11,10 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssm.mapper.UserMapper;
-import com.ssm.pojo.Sysuser;
 import com.ssm.service.UserService;
 
-import javax.security.auth.Subject;
 import java.util.Date;
 import java.util.List;
 
@@ -25,40 +24,40 @@ public class UserServiceImpl implements UserService{
 	private UserMapper userMapper;
 
 	@Override
-	public Sysuser get(Long id) {
-		Sysuser sysuser=this.userMapper.selectByPrimaryKey(id);
-		return sysuser;
+	public SysUser get(Long id) {
+		SysUser sysUser =this.userMapper.selectByPrimaryKey(id);
+		return sysUser;
 	}
 
 	@Override
-	public Sysuser findUserByLoginName(String username) {
-	Sysuser param=new Sysuser();
+	public SysUser findUserByLoginName(String username) {
+	SysUser param=new SysUser();
 	param.setLoginName(username);
-	Sysuser sysuser=this.userMapper.selectOne(param);
-		return sysuser;
+	SysUser sysUser =this.userMapper.selectOne(param);
+		return sysUser;
 	}
 
 	@Override
-	public boolean register(Sysuser sysuser) {
-      String password= CryptographyUtil.md5(sysuser.getPassword(),sysuser.getLoginName());
-      sysuser.setPassword(password);
-		sysuser.setCreateTime(new Date());
-		sysuser.setUpdateTime(new Date());
-		sysuser.setIsActivited(0);
-		sysuser.setCreateName(sysuser.getRealName());
-		sysuser.setUpdateName(sysuser.getRealName());
-		this.userMapper.insert(sysuser);
+	public boolean register(SysUser sysUser) {
+      String password= CryptographyUtil.md5(sysUser.getPassword(), sysUser.getLoginName());
+      sysUser.setPassword(password);
+		sysUser.setCreateTime(new Date());
+		sysUser.setUpdateTime(new Date());
+		sysUser.setIsActivited(0);
+		sysUser.setCreateName(sysUser.getRealName());
+		sysUser.setUpdateName(sysUser.getRealName());
+		this.userMapper.insert(sysUser);
 		return true;
 	}
 
 	@Override
-	public Integer getTotal(QueryVo<Sysuser> vo) {
+	public Integer getTotal(QueryVo<SysUser> vo) {
 		return userMapper.getTotal(vo);
 	}
 
 	@Override
-	public List<Sysuser> findUser(QueryVo<Sysuser> vo) {
-		Example example=new Example(Sysuser.class);
+	public List<SysUser> findUser(QueryVo<SysUser> vo) {
+		Example example=new Example(SysUser.class);
 		Example.Criteria criteria=example.createCriteria();
         if (UtilFuns.isNotEmpty(vo.getEntity().getLoginName())){
         	criteria.andEqualTo("loginName",vo.getEntity().getLoginName());
@@ -67,23 +66,23 @@ public class UserServiceImpl implements UserService{
 			criteria.andEqualTo("realName",vo.getEntity().getRealName());
 		}
           criteria.andEqualTo("isActivited",0);
-		List<Sysuser> sysuserList=this.userMapper.selectByExample(example);
-		return sysuserList;
+		List<SysUser> sysUserList =this.userMapper.selectByExample(example);
+		return sysUserList;
 	}
 
 	@Override
-	public Integer add(Sysuser sysuser) {
-		Sysuser user= UserLocal.getUser();
-	    String	password = Encrypt.md5(sysuser.getPassword(), user.getLoginName());
-	    sysuser.setPassword(password);
-	    sysuser.setCreateBy(user.getId());
-	    sysuser.setCreateName(user.getRealName());
-	    sysuser.setUpdateBy(user.getId());
-	    sysuser.setUpdateName(user.getRealName());
-	    sysuser.setCreateTime(new Date());
-	    sysuser.setUpdateTime(new Date());
-	    sysuser.setIsActivited(0);
-       Integer count=this.userMapper.insert(sysuser);
+	public Integer add(SysUser sysUser) {
+		SysUser user= UserLocal.getUser();
+	    String	password = Encrypt.md5(sysUser.getPassword(), user.getLoginName());
+	    sysUser.setPassword(password);
+	    sysUser.setCreateBy(user.getId());
+	    sysUser.setCreateName(user.getRealName());
+	    sysUser.setUpdateBy(user.getId());
+	    sysUser.setUpdateName(user.getRealName());
+	    sysUser.setCreateTime(new Date());
+	    sysUser.setUpdateTime(new Date());
+	    sysUser.setIsActivited(0);
+       Integer count=this.userMapper.insert(sysUser);
  		return count;
 	}
 
