@@ -18,4 +18,6 @@ public interface UserService {
    public  Integer getTotal(QueryVo<Sysuser> vo);
 
 public 	List<Sysuser> findUser(QueryVo<Sysuser> vo);
+
+    public Integer add(Sysuser sysuser);
 }

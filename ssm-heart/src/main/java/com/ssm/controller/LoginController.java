@@ -3,6 +3,7 @@ package com.ssm.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ssm.common.UserLocal;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -70,9 +71,7 @@ private UserService userService;
 			user = (Sysuser) subject.getPrincipal();
 			//将登录信息放入session中
 			subject.getSession().setAttribute("user", user);
-			
-			subject.getSession().setTimeout(28800000);
-
+			UserLocal.setUser(user);
 			return "index.html";
 			
 		} catch (Exception e) {

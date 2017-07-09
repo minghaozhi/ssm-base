@@ -3,9 +3,12 @@ package com.ssm.controller;
 import com.ssm.pojo.Sysuser;
 import com.ssm.pojo.QueryVo;
 import com.ssm.service.UserService;
+import com.ssm.util.MessageResult;
 import com.ssm.util.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -70,4 +73,26 @@ public class SysUserController {
         paging.setRows(list);
         return paging;
     }
+
+
+
+    @RequestMapping(value = "addUser",method = RequestMethod.POST)
+    public ResponseEntity<MessageResult> addUser(Sysuser sysuser){
+        MessageResult result=null;
+        try {
+            Integer count = this.userService.add(sysuser);
+            if(count>0){
+                result = new MessageResult(0, "添加成功！");
+            }else{
+                result = new MessageResult(1, "添加失败！");
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(result);
+        }catch (Exception e){
+            result = new MessageResult(1, "添加失败！");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
 }

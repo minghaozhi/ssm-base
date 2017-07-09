@@ -104,7 +104,7 @@
 	<div class="modal fade" id="myModals" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<form
-			action="${pageContext.request.contextPath}/customer/addCustomer.controller"
+			action="${pageContext.request.contextPath}/rest/sysUser/addUser"
 			method="post">
 			<div class="modal-dialog" style="width: 700px;">
 				<div class="modal-content">
