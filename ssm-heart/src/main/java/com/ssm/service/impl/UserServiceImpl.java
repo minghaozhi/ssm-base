@@ -2,7 +2,9 @@ package com.ssm.service.impl;
 
 import com.github.abel533.entity.Example;
 import com.ssm.common.CryptographyUtil;
+import com.ssm.common.UserLocal;
 import com.ssm.pojo.QueryVo;
+import com.ssm.shiro.Encrypt;
 import com.ssm.util.UtilFuns;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import com.ssm.mapper.UserMapper;
 import com.ssm.pojo.Sysuser;
 import com.ssm.service.UserService;
 
+import javax.security.auth.Subject;
 import java.util.Date;
 import java.util.List;
 
@@ -66,6 +69,22 @@ public class UserServiceImpl implements UserService{
           criteria.andEqualTo("isActivited",0);
 		List<Sysuser> sysuserList=this.userMapper.selectByExample(example);
 		return sysuserList;
+	}
+
+	@Override
+	public Integer add(Sysuser sysuser) {
+		Sysuser user= UserLocal.getUser();
+	    String	password = Encrypt.md5(sysuser.getPassword(), user.getLoginName());
+	    sysuser.setPassword(password);
+	    sysuser.setCreateBy(user.getId());
+	    sysuser.setCreateName(user.getRealName());
+	    sysuser.setUpdateBy(user.getId());
+	    sysuser.setUpdateName(user.getRealName());
+	    sysuser.setCreateTime(new Date());
+	    sysuser.setUpdateTime(new Date());
+	    sysuser.setIsActivited(0);
+       Integer count=this.userMapper.insert(sysuser);
+ 		return count;
 	}
 
 }
