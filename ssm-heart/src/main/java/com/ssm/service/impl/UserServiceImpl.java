@@ -86,4 +86,10 @@ public class UserServiceImpl implements UserService{
  		return count;
 	}
 
+	@Override
+	public SysUser findUserById(Long id) {
+		SysUser sysUser=this.userMapper.selectByPrimaryKey(id);
+		return sysUser;
+	}
+
 }

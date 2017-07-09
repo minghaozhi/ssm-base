@@ -64,11 +64,11 @@
 	<table>
 		<tr>
 			<td>登录名称：</td>
-			<td><input type="text" class="form-control" id="loginName"
+			<td><input type="text" class="form-control" id="loginName" name="loginName"
 				placeholder="登录名称"></td>
 			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td>真实姓名：</td>
-			<td><input type="text" class="form-control" id="realName"
+			<td><input type="text" class="form-control" id="realName" name="realName"
 				placeholder="真实姓名"></td>
 			<td><a href="javascript:sousuo();"><button type="button"
 						class="btn btn-primary">搜索</button></a></td>
@@ -79,20 +79,22 @@
 		</tr>
 
 	</table>
+
 	<div class="btn-group hidden-xs" id="exampleTableEventsToolbar"
 		role="group">
 		<button type="button" class="btn btn-outline btn-default btn-primary"
-			id="getAddDlg" data-toggle="modal" data-target="#myModals">
+			 data-toggle="modal" data-target="#myModals" >
 			<i class="glyphicon glyphicon-plus" aria-hidden="true">添加</i>
 		</button>
 		<button type="button" class="btn btn-outline btn-default btn-primary"  id="update1" data-target="#update" data-toggle="modal">
-			<i class=" glyphicon glyphicon-pencil" aria-hidden="true">修改</i>
+			<i class=" glyphicon glyphicon-pencil" aria-hidden="true" onclick="goSelect()">修改</i>
 		</button>
 		<button type="button" onclick="deleteById()"
 			class="btn btn-outline btn-default btn-primary">
 			<i class=" glyphicon glyphicon-alert" aria-hidden="true">删除</i>
 		</button>
 	</div>
+
 	<table id="table"></table>
 
 
@@ -103,12 +105,11 @@
 	<!--  添加对话框 -->
 	<div class="modal fade" id="myModals" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<form
-			action="${pageContext.request.contextPath}/rest/sysUser/addUser"
-			method="post">
+		<from id="add">
 			<div class="modal-dialog" style="width: 700px;">
 				<div class="modal-content">
 					<div class="modal-header">
+
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="userAdd">添加用户</h4>
@@ -116,21 +117,21 @@
 					<div class="modal-body">
 						<table cellspacing="2px">
 							<tr>
-								<td>客户名称：</td>
-								<td><input type="text" class="form-control" name="loginName"
+								<td>登录名：</td>
+								<td><input type="text" class="form-control" name="loginName" id="loginName1"
 									placeholder="请输入登陆名称"></td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td>姓名:</td>
-								<td><input type="text" class="form-control" name="realName"
+								<td><input type="text" class="form-control" id="realName1"name="realName"
 									placeholder="姓名"></td>
 							</tr>
 							<tr>
 								<td>密码：</td>
-								<td><input type="text" class="form-control" name="password"
+								<td><input type="text" class="form-control" name="password" id="password"
 										   placeholder="请输入密码"></td>
 								<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								<td>年龄:</td>
-								<td><input type="text" class="form-control" name="age"
+								<td><input type="text" class="form-control" id="age"name="age"
 										   placeholder=""></td>
 							</tr>
 							<tr>
@@ -142,14 +143,14 @@
 
 								</select></td>
 								<td>生日：</td>
-								<td>  <input type="date" class="form-control"  required="" name="birthday">
+								<td>  <input type="date" class="form-control"  required="" name="birthday" id="birthday">
 							</tr>
 
 						</table>
 
 					</div>
 					<div class="modal-footer">
-						<button type="submit" id="btn_submit1" class="btn btn-primary">
+						<button type="button" id="btn_submit1" class="btn btn-primary" onclick="add()">
 							<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
 						</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -158,21 +159,21 @@
 
 					</div>
 				</div>
-			</div>
+
 		</form>
 	</div>
 	<!--  更新操作 -->
 	<div class="modal fade" id="update" tabindex="-1" role="dialog"
 		aria-labelledby="update" aria-hidden="true">
 		<form
-			action="${pageContext.request.contextPath}/customer/updateCustomer.controller"
-			method="post">
+			<%--action="${pageContext.request.contextPath}/customer/updateCustomer.controller"--%>
+			<%--method="post">--%>
 			<div class="modal-dialog" style="width: 700px;">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">客户信息更新</h4>
+						<h4 class="modal-title" id="updateInfo">修改用户信息</h4>
 					</div>
 
 					<div class="modal-body">

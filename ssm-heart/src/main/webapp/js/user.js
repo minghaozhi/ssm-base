@@ -86,39 +86,40 @@ function sousuo(){
     var loginName=$('#loginName').val();
     $('#table').bootstrapTable('refresh',{url: '../sysUser/findUser?loginName='+loginName+'&realName='+realName+''});
 }
-function goUpdate(id){
 
+
+function add(){
 
     $.ajax({
-        url:'../customer/selectCustomerById.controller',
-        data:{id:id},
-        success:function(data){
+        url: '../sysUser/addUser',
+        data: {"loginName":$("#loginName1").val(),"realName":$('#realName1').val(),"password":$('#password').val(),"age":$('#age').val(),
+            "sex":$("#sex").val(),"birthday":$("#birthday").val(), },
+        type:"POST",
+        success: function (data) {
+            toastr.success(data.message);
+            $('#myModals').modal('hide');
+            $('#table').bootstrapTable('refresh');
 
-            $('#id').val(data.id);
-            $('#khno').val(data.khno);
-            $('#names').val(data.name);
-            $('#area').val(data.area);
-            $('#cusManager').val(data.cusManager);
-            $('#level').val(data.level);
-            $('#myd').val(data.myd);
-            $('#xyd').val(data.xyd);
-            $('#address').val(data.address);
-            $('#postCode').val(data.postCode);
-            $('#phone').val(data.phone);
-            $('#webSite').val(data.webSite);
-            $('#yyzzzch').val(data.yyzzzch);
-            $('#fax').val(data.fax);
-            $('#fr').val(data.fr);
-            $('#zczj').val(data.zczj);
-            $('#nyye').val(data.nyye);
-            $('#khyh').val(data.khyh);
-            $('#khzh').val(data.khzh);
-            $('#dsdjh').val(data.dsdjh);
-            $('#gsdjh').val(data.gsdjh);
-            $('#state').val(data.state);
         }
     });
-    $('#myUpdateModal').modal('show');
+}
+
+
+function goSelect(){
+
+    var id;
+    var selection=$('#table').bootstrapTable('getSelections');
+    if(selection.length!=1){
+        toastr.warning('请选择有效数据');
+    }else {
+
+        id = selection[0].id;
+        alert(id);
+        $.post('../sysUser/findUserById',
+            {id: id}, function (data) {
+
+            });
+    }
 }
 
 
