@@ -1,233 +1,87 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="en"	class="app js no-touch no-android chrome no-firefox no-iemobile no-ie no-ie10 no-ie11 no-ios no-ios7 ipad">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ssm博客系统</title>
-
-	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-	<STYLE>
-body {
-	background: #ebebeb;
-	font-family: "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei",
-		"\9ED1\4F53", Arial, sans-serif;
-	color: #222;
-	font-size: 12px;
-}
-* {
-	padding: 0px;
-	margin: 0px;
-}
-.top_div {
-	background: #008ead;
-	width: 100%;
-	height: 400px;
-}
-.ipt {
-	border: 1px solid #d3d3d3;
-	padding: 10px 10px;
-	width: 290px;
-	border-radius: 4px;
-	padding-left: 35px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
-		ease-in-out .15s;
-	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
-		.15s;
-	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
-}
-.ipt:focus {
-	border-color: #66afe9;
-	outline: 0;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
-		rgba(102, 175, 233, .6);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px
-		rgba(102, 175, 233, .6)
-}
-.u_logo {
-	background:
-		url("${pageContext.request.contextPath}/static/images/username.png")
-		no-repeat;
-	padding: 10px 10px;
-	position: absolute;
-	top: 43px;
-	left: 40px;
-}
-.p_logo {
-	background:
-		url("${pageContext.request.contextPath}/static/images/password.png")
-		no-repeat;
-	padding: 10px 10px;
-	position: absolute;
-	top: 12px;
-	left: 40px;
-}
-a {
-	text-decoration: none;
-}
-.tou {
-	background:
-		url("${pageContext.request.contextPath}/static/images/tou.png")
-		no-repeat;
-	width: 97px;
-	height: 92px;
-	position: absolute;
-	top: -87px;
-	left: 140px;
-}
-.left_hand {
-	background:
-		url("${pageContext.request.contextPath}/static/images/left_hand.png")
-		no-repeat;
-	width: 32px;
-	height: 37px;
-	position: absolute;
-	top: -38px;
-	left: 150px;
-}
-.right_hand {
-	background:
-		url("${pageContext.request.contextPath}/static/images/right_hand.png")
-		no-repeat;
-	width: 32px;
-	height: 37px;
-	position: absolute;
-	top: -38px;
-	right: -64px;
-}
-.initial_left_hand {
-	background:
-		url("${pageContext.request.contextPath}/static/images/hand.png")
-		no-repeat;
-	width: 30px;
-	height: 20px;
-	position: absolute;
-	top: -12px;
-	left: 100px;
-}
-.initial_right_hand {
-	background:
-		url("${pageContext.request.contextPath}/static/images/hand.png")
-		no-repeat;
-	width: 30px;
-	height: 20px;
-	position: absolute;
-	top: -12px;
-	right: -112px;
-}
-.left_handing {
-	background:
-		url("${pageContext.request.contextPath}/static/images/left-handing.png")
-		no-repeat;
-	width: 30px;
-	height: 20px;
-	position: absolute;
-	top: -24px;
-	left: 139px;
-}
-.right_handinging {
-	background:
-		url("${pageContext.request.contextPath}/static/images/right_handing.png")
-		no-repeat;
-	width: 30px;
-	height: 20px;
-	position: absolute;
-	top: -21px;
-	left: 210px;
-}
-</STYLE>
-
-<SCRIPT type="text/javascript">
-	$(function() {
-		//得到焦点
-		$("#password").focus(function() {
-			$("#left_hand").animate({
-				left : "150",
-				top : " -38"
-			}, {
-				step : function() {
-					if (parseInt($("#left_hand").css("left")) > 140) {
-						$("#left_hand").attr("class", "left_hand");
-					}
-				}
-			}, 2000);
-			$("#right_hand").animate({
-				right : "-64",
-				top : "-38px"
-			}, {
-				step : function() {
-					if (parseInt($("#right_hand").css("right")) > -70) {
-						$("#right_hand").attr("class", "right_hand");
-					}
-				}
-			}, 2000);
-		});
-		//失去焦点
-		$("#password").blur(function() {
-			$("#left_hand").attr("class", "initial_left_hand");
-			$("#left_hand").attr("style", "left:100px;top:-12px;");
-			$("#right_hand").attr("class", "initial_right_hand");
-			$("#right_hand").attr("style", "right:-112px;top:-12px");
-		});
-	});
-	
-	function checkForm() {
-		var username = $("#username").val();
-		var password = $("#password").val();
-		if (username == null || username == "") {
-			$("#error").html("用户名不能为空！");
-			return false;
-		}
-		if (password == null || password == "") {
-			$("#error").html("密码不能为空！");
-			return false;
-		}
-		return true;
-	}
-	
-	
-	
-</SCRIPT>
+<!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+<link href="/favicon.ico" type="image/x-icon" rel=icon>
+<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<meta name="renderer" content="webkit">
+<title>登录－NumberOne管理系统</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"	href="${pageContext.servletContext.contextPath }/admin_files/min.css">
+<link rel="stylesheet"	href="${pageContext.servletContext.contextPath }/admin_files/login.css">
+<link	href="${pageContext.servletContext.contextPath }/admin_files/css.css"	rel="stylesheet" type="text/css">
+<!--[if lt IE 9]> 
+	<script src="${ctx}/js/jquery/ie/html5shiv.js"></script> 
+	<script src="${ctx}/js/jquery/ie/respond.min.js"></script>
+<![endif]-->
 </head>
-<body>
-	<DIV class="top_div"></DIV>
-	<form action="${pageContext.request.contextPath}/rest/login/login"
-		method="post" onsubmit="return checkForm()">
-		<DIV
-			style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center;">
-			<DIV style="width: 165px; height: 96px; position: absolute;">
-				<DIV class="tou"></DIV>
-				<DIV class="initial_left_hand" id="left_hand"></DIV>
-				<DIV class="initial_right_hand" id="right_hand"></DIV>
-			</DIV>
-			<P style="padding: 30px 0px 10px; position: relative;">
-				<SPAN class="u_logo"></SPAN> 
-				<INPUT id="username" name="username" class="ipt" type="text" 
-					placeholder="请输入用户名" value="${sysUser.name }">
-			</P>
-			<P style="position: relative;">
-				<SPAN class="p_logo"></SPAN> 
-				<INPUT id="password" name="password" class="ipt" type="password" 
-					placeholder="请输入密码" value="${sysUser.password }">
-			</P>
-			<DIV
-				style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
-				<P style="margin: 0px 35px 20px 45px;">
-					<SPAN style="float: left;">SSM博客系统</SPAN> 
-					<span><font color="red" id="error">${errorInfo }</font></span> 
-					<SPAN
-						style="float: right;"> 
-						<input type="submit"
-						style="background: rgb(0, 142, 173); padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;"
-						value="登录"  id="login"/>
-					</SPAN>
-				</P>
-			</DIV>
-		</DIV>
-	</form>
-	<div style="text-align:center;padding-top: 30px">Copyright ©
-		2017-2018 SSM个人博客系统  版权所有 </div>
+<body onload="javascript:to_top()" 
+	style="background-image: url('${pageContext.servletContext.contextPath }/admin_files/9.jpg');margin-top:0px;background-repeat:no-repeat;background-size: 100% auto;">
+	<div id="loginbox" style="padding-top: 10%;">
+		<form id="loginform" name="loginform" class="form-vertical"
+			style="background-color: rgba(0, 0, 0, 0.5) !important; background: #000; filter: alpha(opacity = 50); *background: #000; *filter: alpha(opacity = 50); /*黑色透明背景结束*/ color: #FFF; bottom: 0px; right: 0px; border: 1px solid #000;"
+			action="${pageContext.servletContext.contextPath }/login.shtml"
+			method="post">
+			<div class="control-group normal_text">
+				<table style="width: 100%">
+					<tr>
+						<td align="left"><img
+							src="${pageContext.servletContext.contextPath }/admin_files/logo_left.png"
+							alt="Logo"></td>
+							<td align="center" style="font-weight: bold;color: gray;">NumberOne管理系统</td>
+						<td align="right"><img
+							src="${pageContext.servletContext.contextPath }/admin_files/logo_left.png"
+							alt="Logo"></td>
+					</tr>
+				</table>
+
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="main_input_box">
+						<span class="add-on bg_ly" style="background: #28b779"><img
+							src="${pageContext.servletContext.contextPath }/admin_files/account_1.png"
+							alt="请输入账号.."></span><input type="text" placeholder="username" name="username" value="admin"
+							style="height: 32px; margin-bottom: 0px;"/>
+					</div>
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<div class="main_input_box">
+						<span class="add-on bg_ly"><img
+							src="${pageContext.servletContext.contextPath }/admin_files/lock_1.png"
+							alt="请输入密码.."></span><input type="password" placeholder="password" name="password" value="123456"
+							style="height: 32px; margin-bottom: 0px;"/>
+					</div>
+				</div>
+			</div>
+			<div class="form-actions">
+				<span class="pull-left" style="width: 33%"><a href="#"
+					class="flip-link btn btn-info" id="to-recover">忘记密码？</a></span>
+					<span class="pull-left" style="width: 33%"><a href="install.shtml"
+					class="flip-link btn btn-danger" id="to-recover">一键初始化系统</a></span>
+					 <span
+					class="pull-right"><a type="submit"
+					href="javascript:checkUserForm()" class="btn btn-success">登&nbsp;&nbsp;录</a></span>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		if ("${error}" != "") {
+			alert("${error}");
+		};
+		function checkUserForm() {
+			document.loginform.submit();
+		}
+		function to_top(){
+			if(window != top){
+		        top.location.href=location.href;
+		    }
+		}
+	</script>
 </body>
 </html>
