@@ -29,11 +29,11 @@ private UserService userService;
     	
     	
     	if(obj!=null){
-    		return "index.html";
+    		return "index.shtml";
     	}
     	
-    	
-		return "login.html";
+
+		return "login.shtml";
     	
     }
 	
