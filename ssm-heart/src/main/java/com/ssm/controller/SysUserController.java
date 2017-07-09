@@ -61,9 +61,11 @@ public class SysUserController {
     public Paging<Sysuser> list(QueryVo<Sysuser> vo,Sysuser sysuser, Integer limit, Integer offset) throws Exception{
 
      vo.setEntity(sysuser);
-        sysuser.setLoginName( new String(sysuser.getLoginName().getBytes("iso-8859-1"),"utf-8"));
-      sysuser.setRealName( new String(sysuser.getRealName().getBytes("iso-8859-1"),"utf-8"));
-        Integer total = userService.getTotal(vo);
+     if(sysuser.getLoginName()!=null&&sysuser.getRealName()!=null) {
+         sysuser.setLoginName(new String(sysuser.getLoginName().getBytes("iso-8859-1"), "utf-8"));
+         sysuser.setRealName(new String(sysuser.getRealName().getBytes("iso-8859-1"), "utf-8"));
+
+     }  Integer total = userService.getTotal(vo);
         Paging<Sysuser> paging = new Paging<Sysuser>();
         paging.setTotal(total);
         vo.setStartSize(offset);
