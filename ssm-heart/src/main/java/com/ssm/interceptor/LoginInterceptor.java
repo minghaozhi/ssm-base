@@ -33,7 +33,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 				printWriter.flush();
 				printWriter.close();
 			}else{
-				response.sendRedirect(request.getContextPath()+"/rest/sysuser/login");
+				response.sendRedirect(request.getContextPath()+"/rest/login/login");
 			}
 			return false;
 		}else{

@@ -21,28 +21,14 @@ import com.ssm.service.UserService;
 public class LoginController {
 @Autowired
 private UserService userService;
-	@RequestMapping(value="login",method=RequestMethod.GET)
-    public String loginq(HttpServletRequest request){
-    	//获取当前登录的用户
-    	
-    	Object obj = request.getSession().getAttribute("user");
-    	
-    	
-    	if(obj!=null){
-    		return "index.shtml";
-    	}
-    	
 
-		return "login.shtml";
-    	
-    }
-	
+
 	
 	 /**
      *  登录用户(使用shiro框架的登录方法)
      * @return
      */
-    @RequestMapping(value="login",method=RequestMethod.POST)
+    @RequestMapping(value="login",method = RequestMethod.POST)
     public String login(@RequestParam("username")String username,
     		@RequestParam("password")String password,
     		HttpServletRequest request,HttpServletResponse response){
@@ -70,7 +56,7 @@ private UserService userService;
 			//将登录信息放入session中
 			subject.getSession().setAttribute("user", user);
 			UserLocal.setUser(user);
-			return "index.html";
+			return "index";
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -78,7 +64,7 @@ private UserService userService;
 			//当登录失败时抛出此异常
 			request.setAttribute("errorInfo", "对不起用户名或密码错误！"); 
 			
-			return "login.html";
+			return "login";
 		}
     	
     }
