@@ -6,7 +6,7 @@ import javax.persistence.Table;
  * Created by 墨殇 on 2017/7/10.
  */
 @Table(name = "sys_res_user")
-public class sysResUser {
+public class SysResUser {
 
     private Long resId;
 

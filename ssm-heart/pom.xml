@@ -102,7 +102,28 @@
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-io</artifactId>
 			</dependency>
-			
+	  <dependency>
+		  <groupId>commons-io</groupId>
+		  <artifactId>commons-io</artifactId>
+		  <version>${commons-io.version}</version>
+	  </dependency>
+
+	  <dependency>
+		  <groupId>commons-fileupload</groupId>
+		  <artifactId>commons-fileupload</artifactId>
+		  <version>${commons-fileupload.version}</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>commons-beanutils</groupId>
+		  <artifactId>commons-beanutils</artifactId>
+		  <version>${commons-beanutils.version}</version>
+		  <exclusions>
+			  <exclusion>
+				  <groupId>commons-logging</groupId>
+				  <artifactId>commons-logging</artifactId>
+			  </exclusion>
+		  </exclusions>
+	  </dependency>
 	<!-- 添加Shiro支持 -->
   <dependency>
 				<groupId>org.apache.shiro</groupId>

@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * Created by 墨殇 on 2017/7/10.
  */
 @Table(name = "sys_resources")
-public class sysResources {
+public class SysResources {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//主键自动生成策略

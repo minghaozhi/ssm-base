@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.ssm.mapper.SysResourcesMapper">
+
+  <sql id="selectId">
+    id,
+    name,
+    parentId,
+    (select r.name from sys_resources r where r.id = sys_resources.parentId )
+    parentName,
+    resKey,
+    ishide,
+    type,
+    resUrl,
+    level,
+    icon,
+    description
+  </sql>
+<select id="findByUserId" parameterType="String" resultType="com.ssm.util.ResFormMap">
+    SELECT
+  <include refid="selectId" />
+
+  FROM
+  `sys_resources`
+WHERE id IN
+  (SELECT
+    id
+  FROM
+    `sys_res_user`
+  WHERE userId =${id})
+</select>
+</mapper>
