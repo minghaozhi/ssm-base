@@ -6,7 +6,7 @@
 
 	<!--安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<!-- Single realm app. If you have multiple realms, use the 'realms' property 
+		<!-- Single realm app. If y'ou have multiple realms, use the 'realms' property
 			instead. -->
 		<property name="realm" ref="ShiroDbRealm" /><!-- 引用自定义的realm -->
 		<!-- 二级缓存 -->
@@ -44,7 +44,7 @@
             </value>
         </property>
     </bean>
-    
+
 	<!--缓存策略的配置 -->
 	<!-- 用户授权/认证信息Cache, 采用EhCache 缓存 -->
 	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
