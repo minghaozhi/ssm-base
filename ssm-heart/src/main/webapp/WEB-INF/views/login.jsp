@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"	href="${pageContext.servletContext.contextPath }/admin_files/min.css">
     <link rel="stylesheet"	href="${pageContext.servletContext.contextPath }/admin_files/login.css">
-    <link href="${pageContext.servletContext.contextPath }/admin_files/css.css" rel="stylesheet" type="text/css">
+    <link	href="${pageContext.servletContext.contextPath }/admin_files/css.css"	rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="${ctx}/js/jquery/ie/html5shiv.js"></script>
     <script src="${ctx}/js/jquery/ie/respond.min.js"></script>
@@ -31,7 +31,7 @@
                     <td align="left"><img
                             src="${pageContext.servletContext.contextPath }/admin_files/logo_left.png"
                             alt="Logo"></td>
-                    <td align="center" style="font-weight: bold;color: gray;">管理系统</td>
+                    <td align="center" style="font-weight: bold;color: gray;">NumberOne管理系统</td>
                     <td align="right"><img
                             src="${pageContext.servletContext.contextPath }/admin_files/logo_left.png"
                             alt="Logo"></td>
@@ -65,8 +65,8 @@
             <span class="pull-left" style="width: 33%"><a href="install.shtml"
                                                           class="flip-link btn btn-danger" id="to-recover">一键初始化系统</a></span>
             <span
-                    class="pull-right"><button type="submit"
-                                        class="btn btn-success" />登&nbsp;&nbsp;录</span>
+                    class="pull-right"><a type="submit"
+                                          href="javascript:checkUserForm()" class="btn btn-success">登&nbsp;&nbsp;录</a></span>
         </div>
     </form>
 </div>
