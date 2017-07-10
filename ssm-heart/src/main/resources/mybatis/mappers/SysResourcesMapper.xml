@@ -32,6 +32,6 @@ WHERE id IN
     id
   FROM
     `sys_res_user`
-  WHERE userId =${id})
+  WHERE userId =#{id})
 </select>
 </mapper>

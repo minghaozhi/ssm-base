@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface SysResourcesMapper extends Mapper<SysResources>{
 
-   public  List<ResFormMap> findByUserId(@Param("id") Long id);
+   public  List<ResFormMap> findByUserId( Long id);
 }
