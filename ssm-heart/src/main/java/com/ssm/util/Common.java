@@ -506,11 +506,7 @@ public class Common {
 	/**
 	 * html转议
 	 * 
-	 * @descript
-	 * @param content
-	 * @return
-	 * @author LJN
-	 * @date 2015年4月27日
+
 	 * @version 1.0
 	 */
 	public static String stringtohtml(String content) {

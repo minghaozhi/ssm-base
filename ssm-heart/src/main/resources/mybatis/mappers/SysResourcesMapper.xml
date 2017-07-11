@@ -33,5 +33,8 @@ WHERE id IN
   FROM
     `sys_res_user`
   WHERE userId =#{userId})
+  <if test="parentId != null and parentId != '' and parentId != 0">
+    and parentId = #{parentId}
+  </if>
 </select>
 </mapper>
