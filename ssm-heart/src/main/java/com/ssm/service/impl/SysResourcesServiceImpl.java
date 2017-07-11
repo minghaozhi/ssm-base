@@ -18,7 +18,7 @@ public class SysResourcesServiceImpl implements SysResourcesService{
     @Autowired
     private SysResourcesMapper sysResourcesMapper;
     @Override
-    public List<ResFormMap> findByUserId(Long id) {
-        return this.sysResourcesMapper.findByUserId(id);
+    public List<ResFormMap> findByUserId(ResFormMap map) {
+        return this.sysResourcesMapper.findByUserId(map);
     }
 }

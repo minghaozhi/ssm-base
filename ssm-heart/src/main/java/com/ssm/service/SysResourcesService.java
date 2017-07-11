@@ -9,5 +9,5 @@ import java.util.List;
  * Created by 墨殇 on 2017/7/10.
  */
 public interface SysResourcesService {
-    List<ResFormMap> findByUserId(Long id);
+    List<ResFormMap> findByUserId(ResFormMap map);
 }

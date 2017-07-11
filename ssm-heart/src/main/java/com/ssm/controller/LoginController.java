@@ -72,7 +72,9 @@ private SysResourcesService sysResourcesService;
 			subject.getSession().setAttribute("user", user);
 			UserLocal.setUser(user);
            //根据用户id查询用户菜单表
-			List<ResFormMap> resFormMaps=this.sysResourcesService.findByUserId(user.getId());
+			ResFormMap resFormMap = new ResFormMap();
+			resFormMap.put("userId", String.valueOf(user.getId()));
+			List<ResFormMap> resFormMaps=this.sysResourcesService.findByUserId(resFormMap);
 			List<TreeObject> list = new ArrayList<TreeObject>();
 			for (ResFormMap map : resFormMaps) {
 				TreeObject ts = new TreeObject();
