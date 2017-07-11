@@ -2,14 +2,15 @@ package com.ssm.controller;
 
 import com.ssm.pojo.SysUser;
 import com.ssm.pojo.QueryVo;
+import com.ssm.service.SysResourcesService;
 import com.ssm.service.UserService;
-import com.ssm.util.MessageResult;
-import com.ssm.util.Paging;
+import com.ssm.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("sysUser")
-public class SysUserController {
+public class SysUserController extends BaseController{
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
@@ -31,6 +32,9 @@ public class SysUserController {
     }
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SysResourcesService sysResourcesService;
     /**
      * 注册用户
      */
@@ -102,4 +106,20 @@ public class SysUserController {
     }
 
 
+    @RequestMapping(value = "list",method = RequestMethod.GET)
+    public String listUI(Model model) throws Exception {
+        model.addAttribute("res", findByRes());
+        return "/jsp/system/user/list";
+    }
+    @ResponseBody
+    @RequestMapping(value = "findByPage")
+    public PageView findByPage(String pageNow,
+                               String pageSize, String column, String sort) throws Exception {
+        UserFormMap userFormMap = getFormMap(UserFormMap.class);
+        userFormMap=toFormMap(userFormMap, pageNow, pageSize,userFormMap.getStr("orderby"));
+        userFormMap.put("column", column);
+        userFormMap.put("sort", sort);
+        pageView.setRecords(userService.findUserPage(userFormMap));//不调用默认分页,调用自已的mapper中findUserPage
+        return pageView;
+    }
 }

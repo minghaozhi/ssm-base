@@ -6,6 +6,7 @@ import com.ssm.common.UserLocal;
 import com.ssm.pojo.QueryVo;
 import com.ssm.pojo.SysUser;
 import com.ssm.shiro.Encrypt;
+import com.ssm.util.UserFormMap;
 import com.ssm.util.UtilFuns;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +91,11 @@ public class UserServiceImpl implements UserService{
 	public SysUser findUserById(Long id) {
 		SysUser sysUser=this.userMapper.selectByPrimaryKey(id);
 		return sysUser;
+	}
+
+	@Override
+	public List<UserFormMap> findUserPage(UserFormMap userFormMap) {
+		return userMapper.findUserPage(userFormMap);
 	}
 
 }

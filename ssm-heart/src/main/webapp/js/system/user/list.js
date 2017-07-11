@@ -8,25 +8,14 @@ $(function() {
 			colkey : "id",
 			name : "id",
 		}, {
-			colkey : "userName",
+			colkey : "realName",
 			name : "用户名",
 			isSort:true,
 		}, {
-			colkey : "accountName",
+			colkey : "loginName",
 			name : "账号",
 			isSort:true,
-		}, {
-			colkey : "roleName",
-			name : "所属角色"
-		}, {
-			colkey : "locked",
-			name : "账号状态",
-			width : '90px',
-			isSort:true
-		}, {
-			colkey : "description",
-			name : "描述"
-		}, {
+		},  {
 			colkey : "createTime",
 			name : "时间",
 			isSort:true,
@@ -39,7 +28,7 @@ $(function() {
 				return "测试渲染函数";
 			}
 		} ],
-		jsonUrl : rootPath + '/user/findByPage.shtml',
+		jsonUrl : '/rest/sysUser/findByPage',
 		checkbox : true,
 		serNumber : true
 	});

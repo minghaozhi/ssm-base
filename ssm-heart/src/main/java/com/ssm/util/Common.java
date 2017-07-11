@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 public class Common {
 	// 后台访问
-	public static final String BACKGROUND_PATH = "WEB-INF/jsp";
+	public static final String BACKGROUND_PATH = "WEB-INF/views/jsp";
 	// 前台访问
 	public static final String WEB_PATH = "/WEB-INF/jsp/web";
 	

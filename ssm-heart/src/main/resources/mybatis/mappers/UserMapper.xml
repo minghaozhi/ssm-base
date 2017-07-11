@@ -26,5 +26,28 @@
             </if>
         </where>
     </select>
+    <sql id="selectId">
+        id,
+        login_name loginName,
+        real_name realName,
+        password,
+        age,
+        sex,
+        birthday,
+        create_time createTime,
+        update_time updateTime
+    </sql>
+    <select id="findUserPage" resultType="com.ssm.util.UserFormMap">
+        select
+        <include refid="selectId" />
+        from sys_user
+        where 1 = 1
+        <if test="loginName != null and loginName != ''">
+            and login_name =#{loginName}
+        </if>
+        <if test="column != null">
+            order by ${column} ${sort}
+        </if>
+    </select>
 </mapper>
 

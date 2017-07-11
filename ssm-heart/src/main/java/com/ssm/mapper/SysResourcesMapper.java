@@ -13,4 +13,6 @@ import java.util.List;
 public interface SysResourcesMapper extends Mapper<SysResources>{
 
    public  List<ResFormMap> findByUserId(ResFormMap map);
+
+   public  List<ResFormMap> findRes(ResFormMap resQueryForm);
 }
