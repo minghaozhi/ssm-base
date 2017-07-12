@@ -52,8 +52,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Integer getTotal(QueryVo<SysUser> vo) {
-		return userMapper.getTotal(vo);
+	public Integer getTotal(UserFormMap userFormMap) {
+		return userMapper.getTotal(userFormMap);
 	}
 
 	@Override

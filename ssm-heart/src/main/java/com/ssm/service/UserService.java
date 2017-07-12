@@ -16,7 +16,7 @@ public interface UserService {
 
     public boolean register(SysUser sysUser);
 
-   public  Integer getTotal(QueryVo<SysUser> vo);
+   public  Integer getTotal(UserFormMap userFormMap);
 
 public 	List<SysUser> findUser(QueryVo<SysUser> vo);
 

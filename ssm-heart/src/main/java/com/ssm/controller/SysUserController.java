@@ -57,26 +57,6 @@ public class SysUserController extends BaseController{
     public String userList(){
         return "user.jsp";
     }
-    @RequestMapping(value = "findUser")
-    @ResponseBody
-    public Paging<SysUser> list(QueryVo<SysUser> vo, SysUser sysUser, Integer limit, Integer offset) throws Exception{
-
-     vo.setEntity(sysUser);
-     if(sysUser.getLoginName()!=null&& sysUser.getRealName()!=null) {
-         sysUser.setLoginName(new String(sysUser.getLoginName().getBytes("iso-8859-1"), "utf-8"));
-         sysUser.setRealName(new String(sysUser.getRealName().getBytes("iso-8859-1"), "utf-8"));
-
-     }  Integer total = userService.getTotal(vo);
-        Paging<SysUser> paging = new Paging<SysUser>();
-        paging.setTotal(total);
-        vo.setStartSize(offset);
-        vo.setPageSize(limit);
-
-        List<SysUser> list = userService.findUser(vo);
-        paging.setRows(list);
-        return paging;
-    }
-
 
 
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
@@ -119,7 +99,21 @@ public class SysUserController extends BaseController{
         userFormMap=toFormMap(userFormMap, pageNow, pageSize,userFormMap.getStr("orderby"));
         userFormMap.put("column", column);
         userFormMap.put("sort", sort);
+        int endNumber=0;
+        int startNumber=0;
+        if (pageNow==null){
+            pageNow="0";
+            endNumber=Integer.parseInt(pageSize);
+            startNumber=0;
+        }else {
+            endNumber = Integer.parseInt(pageNow) * Integer.parseInt(pageSize);
+            startNumber = endNumber - Integer.parseInt(pageSize);
+        }
+        userFormMap.put("endNumber", endNumber);
+        userFormMap.put("startNumber", startNumber);
+
         pageView.setRecords(userService.findUserPage(userFormMap));//不调用默认分页,调用自已的mapper中findUserPage
+        pageView.setRowCount(userService.getTotal(userFormMap));
         return pageView;
     }
 }

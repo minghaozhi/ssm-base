@@ -35,6 +35,8 @@ WHERE id IN
   WHERE userId =#{userId})
   <if test="parentId != null and parentId != '' and parentId != 0">
     and parentId = #{parentId}
+
+    order by level asc
   </if>
 </select>
 </mapper>

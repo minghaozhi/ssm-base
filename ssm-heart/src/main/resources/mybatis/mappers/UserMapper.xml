@@ -8,23 +8,18 @@
 <mapper namespace="com.ssm.mapper.UserMapper">
 
     <!-- 带条件的获取总计路数 -->
-    <select id="getTotal" parameterType="queryVo" resultType="int">
+    <select id="getTotal"  resultType="int">
         <!-- 引入指定的sql语句 -->
         select count(*) from sys_user
-        <where>
-            is_activited=0
-            <!-- 拼接sql语句 -->
-            <if test="entity!=null">
-                <if test="entity.loginName!=null and entity.loginName!=''">
-                    and login_name like '%${entity.loginName}%'
-                </if>
-                <!-- 其它条件 -->
-                <if test="entity.realName!=null and entity.realName!=''">
-                    and real_name like '%${entity.realName}%'
-                </if>
 
-            </if>
-        </where>
+        where 1 = 1
+        <if test="loginName != null and loginName != ''">
+            and login_name =#{loginName}
+        </if>
+        <if test="column != null">
+            order by ${column} ${sort}
+        </if>
+
     </select>
     <sql id="selectId">
         id,
@@ -43,11 +38,14 @@
         from sys_user
         where 1 = 1
         <if test="loginName != null and loginName != ''">
-            and login_name =#{loginName}
+            and login_name =#{userFormMap.loginName}
         </if>
         <if test="column != null">
             order by ${column} ${sort}
         </if>
+        limit ${startNumber},${endNumber}
     </select>
+
+
 </mapper>
 

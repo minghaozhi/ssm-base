@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by 墨殇 on 2017/7/10.
  */
-public interface SysResourcesMapper extends Mapper<SysResources>{
+public interface SysResourcesMapper extends Mapper<SysResources> {
 
    public  List<ResFormMap> findByUserId(ResFormMap map);
 
