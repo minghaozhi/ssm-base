@@ -69,7 +69,7 @@ function addAccount() {
 		title : "新增",
 		type : 2,
 		area : [ "600px", "80%" ],
-		content : rootPath + '/user/addUI.shtml'
+		content : '/rest/sysUser/addUI'
 	});
 }
 function delAccount() {

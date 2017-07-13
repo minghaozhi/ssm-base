@@ -4,10 +4,17 @@
 <html>
 <head>
 <%@include file="/common/common.jspf"%>
-<script type="text/javascript" src="${ctx}/js/system/user/add.js">
-	
+	<link href="${ctx}/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="${ctx}/js/system/user/add.js">
+
 </script>
-<style type="text/css">
+
+	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js"></script>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+	<style type="text/css">
 .col-sm-3 {
 	width: 15%;
 	float: left;
@@ -37,7 +44,7 @@ label[class^="btn btn-default"] {
 				</div>
 				<div class="col-sm-9">
 					<input type="text" class="form-control"
-						placeholder="请输入用户名" name="userFormMap.userName" id="userName">
+						placeholder="请输入用户名" name="realName" id="userName">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
@@ -45,53 +52,52 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">账号</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入账号" name="userFormMap.accountName" id="accountName">
+						placeholder="请输入账号" name="loginName" id="accountName">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">密码</label>
 				<div class="col-sm-9" style="color: red;">
-					默认密码为:123456789
+					默认密码为:123456
 				</div>
 			</div>
-			<div class="line line-dashed line-lg pull-in"></div>
-			<div class="form-group" id="selRole" data-url="/role/selRole.shtml"></div>
-			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">是否禁用</label>
+				<label class="col-sm-3 control-label">年龄</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control checkacc"
+						   placeholder="请输入年龄" name="age" id="age">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">性别</label>
 				<div class="col-sm-9">
 					<div class="btn-group m-r">
-						<button data-toggle="dropdown"
-							class="btn btn-sm btn-default dropdown-toggle">
-							<span class="dropdown-label">是</span> <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu dropdown-select">
-							<li class=""><a href="#"><input type="radio"
-									name="userFormMap.locked" value="0" checked="checked">是</a></li>
-							<li class="active"><a href="#"><input type="radio"
-									name="userFormMap.locked" value="1">否</a></li>
-						</ul>
+						<select name="sex" id="sex">
+                    <option value="男">男</option>
+							<option value="女">女</option>
+						</select>
 					</div>
 				</div>
 			</div>
-			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">描述</label>
-				<div class="col-sm-9">
-					<input type="text" class="form-control" placeholder="请输入账号描述"
-						name="userFormMap.description" id="description">
+				<label for="dtp_input2" class="col-md-2 control-label">生日</label>
+				<div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+					<input class="form-control" size="16" type="text" value="" readonly >
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 				</div>
+				<input type="hidden" id="dtp_input2" value="" /><br/>
 			</div>
-		</div>
 		<footer class="panel-footer text-right bg-light lter">
 		<button type="submit" class="btn btn-success btn-s-xs">提交</button>
 		</footer> </section>
 	</form>
 	<script type="text/javascript">
-	onloadurl();
+
+        onloadurl();
 	</script>
-	<script type="text/javascript"
-		src="${ctx}/notebook/notebook_files/bootstrap-filestyle.min.js"></script>
+
+	<script type="text/javascript" src="${ctx}/notebook/notebook_files/bootstrap-filestyle.min.js"></script>
 </body>
 </html>

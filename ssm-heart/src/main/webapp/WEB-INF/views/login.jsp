@@ -54,7 +54,7 @@
                 <div class="main_input_box">
 						<span class="add-on bg_ly"><img
                                 src="${pageContext.servletContext.contextPath }/admin_files/lock_1.png"
-                                alt="请输入密码.."></span><input type="password" placeholder="password" name="password" value="123456"
+                                alt="请输入密码.."></span><input type="password" placeholder="password" name="password" value="1123"
                                                             style="height: 32px; margin-bottom: 0px;"/>
                 </div>
             </div>

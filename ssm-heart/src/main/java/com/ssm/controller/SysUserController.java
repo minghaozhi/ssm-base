@@ -116,4 +116,9 @@ public class SysUserController extends BaseController{
         pageView.setRowCount(userService.getTotal(userFormMap));
         return pageView;
     }
+
+    @RequestMapping("addUI")
+    public String addUI(Model model) throws Exception {
+        return  "/jsp/system/user/add";
+    }
 }

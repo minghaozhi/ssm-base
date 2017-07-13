@@ -38,7 +38,7 @@
         from sys_user
         where 1 = 1
         <if test="loginName != null and loginName != ''">
-            and login_name =#{userFormMap.loginName}
+            and login_name =#{loginName}
         </if>
         <if test="column != null">
             order by ${column} ${sort}
