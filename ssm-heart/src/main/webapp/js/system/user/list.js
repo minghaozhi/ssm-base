@@ -68,7 +68,7 @@ function addAccount() {
 	pageii = layer.open({
 		title : "新增",
 		type : 2,
-		area : [ "600px", "80%" ],
+		area : [ "600px", "54%" ],
 		content : '/rest/sysUser/addUI'
 	});
 }

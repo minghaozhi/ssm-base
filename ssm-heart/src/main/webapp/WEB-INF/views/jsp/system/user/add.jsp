@@ -72,26 +72,27 @@ label[class^="btn btn-default"] {
 			<div class="form-group">
 				<label class="col-sm-3 control-label">性别</label>
 				<div class="col-sm-9">
-					<div class="btn-group m-r">
+
 						<select name="sex" id="sex">
                     <option value="男">男</option>
 							<option value="女">女</option>
 						</select>
-					</div>
+
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="dtp_input2" class="col-md-2 control-label">生日</label>
-				<div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-					<input class="form-control" size="16" type="text" value="" readonly >
-					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+				<label class="col-sm-3 control-label">生日</label>
+				<div class="col-sm-9">
+				<div class="btn-group m-r">
+					<input class="form-control" size="16" type="date" value=""  name="birthday" />
 				</div>
-				<input type="hidden" id="dtp_input2" value="" /><br/>
+
+				</div>
+
 			</div>
 		<footer class="panel-footer text-right bg-light lter">
 		<button type="submit" class="btn btn-success btn-s-xs">提交</button>
-		</footer> </section>
+		</footer>
 	</form>
 	<script type="text/javascript">
 
