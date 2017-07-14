@@ -72,9 +72,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Integer add(SysUser sysUser) {
+	public Integer add(SysUser sysUser,Integer flag) {
 		SysUser user= UserLocal.getUser();
-	    String	password = Encrypt.md5(sysUser.getPassword(), user.getLoginName());
+	    String	password = Encrypt.md5("123456",user.getRealName());
 	    sysUser.setPassword(password);
 	    sysUser.setCreateBy(user.getId());
 	    sysUser.setCreateName(user.getRealName());
@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService{
 	    sysUser.setIsActivited(0);
        Integer count=this.userMapper.insert(sysUser);
  		return count;
+
 	}
 
 	@Override

@@ -1,8 +1,5 @@
 //单独验证某一个input  class="checkpass"
-jQuery.validator.addMethod("checkacc", function(value, element) {
-	return this.optional(element)
-			|| ((value.length <= 30) && (value.length >= 3));
-}, "账号由3至30位字符组合构成");
+
 $(function() {
 	$("form").validate({
 		submitHandler : function(form) {// 必须写在验证前面，否则无法ajax提交
@@ -10,7 +7,7 @@ $(function() {
 				type : "post",
 				dataType : "json",
 				success : function(data) {
-					if (data == "success") {
+					if (data.flag == 0) {
 						layer.confirm('添加成功!是否关闭窗口?', function(index) {
 							parent.grid.loadData();
 							parent.layer.close(parent.pageii);

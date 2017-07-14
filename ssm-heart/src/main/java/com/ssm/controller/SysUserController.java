@@ -1,5 +1,6 @@
 package com.ssm.controller;
 
+import com.ssm.Log.SystemControllerLog;
 import com.ssm.pojo.SysUser;
 import com.ssm.pojo.QueryVo;
 import com.ssm.service.SysResourcesService;
@@ -60,10 +61,11 @@ public class SysUserController extends BaseController{
 
 
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
-    public ResponseEntity<MessageResult> addUser(SysUser sysUser){
+    @SystemControllerLog(description = "添加用户")
+    public ResponseEntity<MessageResult> addUser(SysUser sysUser,Integer flag){
         MessageResult result=null;
         try {
-            Integer count = this.userService.add(sysUser);
+            Integer count = this.userService.add(sysUser,flag);
             if(count>0){
                 result = new MessageResult(0, "添加成功！");
             }else{

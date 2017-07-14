@@ -20,7 +20,7 @@ public interface UserService {
 
 public 	List<SysUser> findUser(QueryVo<SysUser> vo);
 
-    public Integer add(SysUser sysUser);
+    public Integer add(SysUser sysUser,Integer flag);
 
    public  SysUser findUserById(Long id);
 

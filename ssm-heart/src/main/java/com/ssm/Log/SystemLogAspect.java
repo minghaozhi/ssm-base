@@ -11,6 +11,8 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,12 +84,14 @@ public class SystemLogAspect {
 			//=========数据库日志===========
 			SysLog log = new SysLog();
 			log.setExecuteOperation(getControllerMethodDescription(joinPoint));
+			log.setDescription(log.getExecuteOperation());
 			log.setMacCode(ComputerInfo.getMacAddress());
 			log.setComputerName(ComputerInfo.getComputerName());
 			log.setEntityType(joinPoint.getTarget().getClass().getName());
 			log.setRequestIp(ip);
 			log.setCreateBy(user.getId());
 			log.setUpdateBy(user.getId());
+
 			Log entityLog=getControllerMethodLogContent(joinPoint);
 			if(entityLog!=null && !entityLog.getDescription().equals("")){
 				log.setEntityInfo(entityLog.getEntityInfo());
@@ -99,8 +103,11 @@ public class SystemLogAspect {
 			log.setOperationTime(new Date());
 			if (user!=null){
 				log.setOperator(user.getRealName());
+				log.setCreateName(user.getRealName());
+				log.setUpdateName(user.getRealName());
 			}
-
+			log.setCreateTime(new Date());
+			log.setUpdateTime(new Date());
 			if(log.getDescription()!=null && !log.getDescription().equals("")){
 				//保存数据库
 				sysLogService.add(log);
@@ -170,9 +177,9 @@ public class SystemLogAspect {
 			LOGGER.error("异常信息：{}"+ e.getMessage());
 		}
 		 
-		 //记录本地异常日志
-		 LOGGER.error("异常方法:{}异常代码:{}异常信息:{}参数:{}",joinPoint.getTarget().getClass().getName()
-				 +joinPoint.getSignature().getName(),e.getClass().getName(),e.getMessage(),param);
+//		 //记录本地异常日志
+//		 LOGGER.error("异常方法:{}异常代码:{}异常信息:{}参数:{}",joinPoint.getTarget().getClass().getName()
+//				 +joinPoint.getSignature().getName(),e.getClass().getName(),e.getMessage(),param);
 	}
 	
 	/**
