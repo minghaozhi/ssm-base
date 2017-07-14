@@ -31,9 +31,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public SysUser findUserByLoginName(String username) {
+	public SysUser findUserByLoginName(String name) {
 	SysUser param=new SysUser();
-	param.setLoginName(username);
+	param.setLoginName(name);
 	SysUser sysUser =this.userMapper.selectOne(param);
 		return sysUser;
 	}

@@ -123,4 +123,20 @@ public class SysUserController extends BaseController{
     public String addUI(Model model) throws Exception {
         return  "/jsp/system/user/add";
     }
+
+    /**
+     * 验证账号是否存在
+     * @param name
+     * @return
+     */
+    @RequestMapping("isExist")
+    @ResponseBody
+    public boolean isExist(String name) {
+       SysUser sysUser=this.userService.findUserByLoginName(name);
+        if (sysUser == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

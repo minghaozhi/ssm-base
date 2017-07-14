@@ -12,7 +12,7 @@ public interface UserService {
 	//根据id获取用户
 	public SysUser get(Long id);
 
-	public SysUser findUserByLoginName(String username);
+	public SysUser findUserByLoginName(String name);
 
     public boolean register(SysUser sysUser);
 

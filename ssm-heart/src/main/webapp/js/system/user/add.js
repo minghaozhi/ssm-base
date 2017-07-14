@@ -21,11 +21,11 @@ $(function() {
 			});
 		},
 		rules : {
-			"userFormMap.accountName" : {
+			"loginName" : {
 				required : true,
 				remote : { // 异步验证是否存在
 					type : "POST",
-					url : 'isExist.shtml',
+					url : '/rest/sysUser/isExist',
 					data : {
 						name : function() {
 							return $("#accountName").val();
@@ -35,7 +35,7 @@ $(function() {
 			}
 		},
 		messages : {
-			"userFormMap.accountName" : {
+			"loginName" : {
 				required : "请输入账号",
 				remote : "该账号已经存在"
 			}
