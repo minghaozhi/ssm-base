@@ -24,14 +24,14 @@
 	<form id="form" name="form" class="form-horizontal" method="post"
 		action="${ctx}/user/editEntity.shtml">
 		<input type="hidden" class="form-control checkacc"
-			value="${user.id}" name="userFormMap.id" id="id">
+			value="${sysUser.id}" name="userFormMap.id" id="id">
 		<section class="panel panel-default">
 		<div class="panel-body">
 			<div class="form-group">
 				<label class="col-sm-3 control-label">用户名</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control"
-						placeholder="请输入用户名" value="${user.userName}"
+						placeholder="请输入用户名" value="${sysUser.realName}"
 						name="userFormMap.userName" id="userName">
 				</div>
 			</div>
@@ -40,42 +40,37 @@
 				<label class="col-sm-3 control-label">账号</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入账号" value="${user.accountName}"
+						placeholder="请输入账号" value="${sysUser.loginName}"
 						name="userFormMap.accountName" id="accountName" readonly="readonly">
 				</div>
 			</div>
-			<div class="line line-dashed line-lg pull-in"></div>
-			<div id="selGroup"
-				data-url="/role/selRole.shtml?roleFormMap.userId=${user.id}"></div>
-			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">是否禁用</label>
+				<label class="col-sm-3 control-label">年龄</label>
 				<div class="col-sm-9">
-					<div class="btn-group m-r">
-						<button data-toggle="dropdown"
-							class="btn btn-sm btn-default dropdown-toggle">
-							<span class="dropdown-label"><c:if
-									test="${user.locked eq 1}">是</c:if>
-								<c:if test="${user.locked eq 0}">否</c:if></span> <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu dropdown-select">
-							<li class="active"><a href="#"><input type="radio"
-									name="userFormMap.locked" value="1"
-									<c:if test="${user.locked eq 1}"> checked="checked"</c:if>>是</a></li>
-							<li class=""><a href="#"><input type="radio"
-									name="userFormMap.locked" value="0"
-									<c:if test="${user.locked eq 0}"> checked="checked"</c:if>>否</a></li>
-						</ul>
-					</div>
+					<input type="text" class="form-control "
+						   placeholder="请输入年龄" name="age" id="age" value="${sysUser.age}">
 				</div>
 			</div>
-			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">描述</label>
+				<label class="col-sm-3 control-label">性别</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control" placeholder="请输入账号描述"
-						value="${user.description}" name="userFormMap.description" id="description">
+
+					<select name="sex" id="sex">
+						<option <c:if test="${sysUser.sex}==男">selected="selected"</c:if>>男</option>
+						<option <c:if test="${sysUser.sex}==女">selected="selected"</c:if>>女</option>
+					</select>
+
 				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">生日</label>
+				<div class="col-sm-9">
+					<div class="btn-group m-r">
+						<input class="form-control" size="16" type="date" value="${sysUser.birthday}"  name="birthday" />
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 		<footer class="panel-footer text-right bg-light lter">

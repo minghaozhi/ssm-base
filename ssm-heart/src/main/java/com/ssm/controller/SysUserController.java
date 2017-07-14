@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -139,4 +140,16 @@ public class SysUserController extends BaseController{
             return false;
         }
     }
+
+    @RequestMapping("editUI")
+    public ModelAndView editUI(Long id) throws Exception {
+        ModelAndView mv=new ModelAndView();
+       SysUser sysUser=this.userService.findUserById(id);
+       mv.addObject("sysUser",sysUser);
+       mv.setViewName("/jsp/system/user/edit");
+       return mv;
+
+    }
+
+
 }
