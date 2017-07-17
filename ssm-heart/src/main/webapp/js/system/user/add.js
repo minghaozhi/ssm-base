@@ -49,15 +49,15 @@ $(function() {
 			$(".l_err").css('display', 'none');
 		}
 	});
+    $("#birthday").datetimepicker({
+        format: 'yyyy-mm-dd',
+        todayBtn: true,
+        language:  'zh-CN',
+        minView:2,
+        showMeridian: true,
+        autoclose: true,
+        locale: moment.locale('zh-cn'),
 
-    $('.form_date').datetimepicker({
-        language:  'fr',
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0
+
     });
 });

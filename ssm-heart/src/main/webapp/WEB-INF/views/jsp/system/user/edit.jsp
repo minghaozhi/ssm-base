@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@include file="/common/common.jspf"%>
+
+	<link rel="stylesheet" href="${ctx}/js/date/bootstrap.min.css">
+	<link rel="stylesheet" href="${ctx}/js/date/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="${ctx}/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<script type="text/javascript" src="${ctx}/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="${ctx}/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="${ctx}/js/date/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${ctx}/js/date/moment.js"></script>
+	<script type="text/javascript" src="${ctx}/js/system/user/add.js"></script>
+	<script type="text/javascript" src="${ctx}/js/moment.js"></script>
 <script type="text/javascript" src="${ctx}/js/system/user/edit.js"></script>
 
 <style type="text/css">
@@ -44,6 +55,22 @@
 						name="userFormMap.accountName" id="accountName" readonly="readonly">
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">生日</label>
+				<div class="col-sm-9">
+					<div class="btn-group m-r">
+						<div class='input-group date' id='birthday' name="birthday">
+							<input type='text' class="form-control" <fmt:formatDate value='${sysUser.birthday}' pattern='yyyy-MM-dd '/>/>
+							<span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">年龄</label>
 				<div class="col-sm-9">
@@ -62,16 +89,7 @@
 
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">生日</label>
-				<div class="col-sm-9">
-					<div class="btn-group m-r">
-						<input class="form-control" size="16" type="date" value="${sysUser.birthday}"  name="birthday" />
-					</div>
 
-				</div>
-
-			</div>
 		</div>
 		<footer class="panel-footer text-right bg-light lter">
 		<button type="submit" class="btn btn-success btn-s-xs">保存</button>

@@ -4,16 +4,18 @@
 <html>
 <head>
 <%@include file="/common/common.jspf"%>
-	<link href="${ctx}/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" rel="stylesheet" />
 
-	<script type="text/javascript" src="${ctx}/js/system/user/add.js">
 
-</script>
+	<link rel="stylesheet" href="${ctx}/js/date/bootstrap.min.css">
+	<link rel="stylesheet" href="${ctx}/js/date/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="${ctx}/datetimepicker/css/bootstrap-datetimepicker.min.css" />
+	<script type="text/javascript" src="${ctx}/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="${ctx}/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<script type="text/javascript" src="${ctx}/js/date/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${ctx}/js/date/moment.js"></script>
+	<script type="text/javascript" src="${ctx}/js/system/user/add.js"></script>
+	<script type="text/javascript" src="${ctx}/js/moment.js"></script>
 
-	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-	<script type="text/javascript" src="${ctx}/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.fr.js"></script>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
 	<style type="text/css">
 .col-sm-3 {
 	width: 15%;
@@ -63,6 +65,21 @@ label[class^="btn btn-default"] {
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="col-sm-3 control-label">生日</label>
+				<div class="col-sm-9">
+					<div class="btn-group m-r">
+						<div class='input-group date' id='birthday' name="birthday">
+							<input type='text' class="form-control" />
+							<span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="form-group">
 				<label class="col-sm-3 control-label">年龄</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
@@ -80,16 +97,7 @@ label[class^="btn btn-default"] {
 
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">生日</label>
-				<div class="col-sm-9">
-				<div class="btn-group m-r">
-					<input class="form-control" size="16" type="date" value=""  name="birthday" />
-				</div>
-
-				</div>
-
-			</div>
+		</div>
 		<footer class="panel-footer text-right bg-light lter">
 		<button type="submit" class="btn btn-success btn-s-xs">提交</button>
 		</footer>
