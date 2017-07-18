@@ -144,6 +144,12 @@ public class SysUserController extends BaseController{
         }
     }
 
+    /**
+     * 进入修改用户页面
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("editUI")
     public ModelAndView editUI(Long id) throws Exception {
         ModelAndView mv=new ModelAndView();
@@ -153,6 +159,14 @@ public class SysUserController extends BaseController{
        return mv;
 
     }
+
+    /**
+     * 修改用户
+     * @param sysUser
+     * @param flag
+     * @param log
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "update",method = RequestMethod.POST)
     @Transactional(readOnly=false)//需要事务操作必须加入此注解
@@ -175,5 +189,34 @@ public class SysUserController extends BaseController{
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
+    /**
+     * 删除用户
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("delete")
+    @Transactional(readOnly=false)//需要事务操作必须加入此注解
+    @SystemControllerLog(description = "删除用户")//凡需要处理业务逻辑的.都需要记录操作日志
+    public ResponseEntity<MessageResult> deleteById(Long[] ids, Log log){
+
+        MessageResult result = null;
+
+        try {
+            Integer count = this.userService.deleteByIds(ids,log);
+
+            if(count>0){
+                result = new MessageResult(0, "删除成功！");
+            }else{
+                result = new MessageResult(1, "删除失败！");
+            }
+
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(result);
+    }
 
 }

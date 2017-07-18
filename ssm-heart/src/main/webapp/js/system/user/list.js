@@ -79,11 +79,11 @@ function delAccount() {
 		return;
 	}
 	layer.confirm('是否删除？', function(index) {
-		var url = rootPath + '/user/deleteEntity.shtml';
+		var url = '/rest/sysUser/delete';
 		var s = CommnUtil.ajax(url, {
 			ids : cbox.join(",")
 		}, "json");
-		if (s == "success") {
+		if (s.flag==0) {
 			layer.msg('删除成功');
 			grid.loadData();
 		} else {

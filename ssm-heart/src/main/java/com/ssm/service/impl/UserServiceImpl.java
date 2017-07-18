@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService{
 	    sysUser.setUpdateTime(new Date());
 	    sysUser.setIsActivited(0);
        Integer count=this.userMapper.insert(sysUser);
-		log.setEntiyType("添加用户");
+		log.setEntiyType("用户管理业务");
 		log.setEntityInfo("添加用户，用户的名字："+sysUser.getRealName()+"用户的昵称："+sysUser.getLoginName());
 		log.setDescription("用户添加操作");
 		return count;
@@ -111,11 +111,43 @@ public class UserServiceImpl implements UserService{
 		sysUser.setUpdateName(user.getRealName());
 		sysUser.setUpdateTime(new Date());
 		Integer count=this.userMapper.updateByPrimaryKeySelective(sysUser);
-		log.setEntiyType("修改用户");
+		log.setEntiyType("用户管理业务");
 		log.setEntityInfo("修改用户，用户的名字："+sysUser.getRealName()+"用户的昵称："+sysUser.getLoginName());
 		log.setDescription("用户修改操作");
 		return count;
 
+	}
+
+	@Override
+	public Integer deleteByIds(Long[] ids, Log log) {
+		Integer count = 0;
+		// 日志内容
+		String logContent = "";
+		try {
+			for (Long id : ids) {
+				count += this.deleteById(id,log);
+				logContent += id + ",";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		log.setEntityInfo(logContent);
+		logContent = "用户id:" + logContent;
+		log.setDescription(logContent);
+		return count;
+	}
+
+	public Integer deleteById(Long id, Log log) {
+
+		SysUser sysUser=this.userMapper.selectByPrimaryKey(id);
+		Integer count = userMapper.delete(sysUser);
+		//业务日志
+		log.setEntityId(1l);
+		log.setEntiyType("用户管理业务");
+		log.setEntityInfo("删除用户，用户的名称为："+sysUser.getRealName()+"用户账号："+sysUser.getLoginName());
+		log.setDescription("用户删除操作");
+		return count;
 	}
 
 }

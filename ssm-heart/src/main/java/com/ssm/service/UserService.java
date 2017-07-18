@@ -29,4 +29,6 @@ public 	List<SysUser> findUser(QueryVo<SysUser> vo);
    public  List<UserFormMap> findUserPage(UserFormMap userFormMap);
 
     public Integer update(SysUser sysUser, Integer flag, Log log);
+
+    public Integer deleteByIds(Long[] ids, Log log);
 }
