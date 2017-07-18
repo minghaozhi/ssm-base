@@ -69,7 +69,7 @@ label[class^="btn btn-default"] {
 				<div class="col-sm-9">
 					<div class="btn-group m-r">
 						<div class='input-group date' id='birthday' name="birthday">
-							<input type='text' class="form-control" />
+							<input type='text' class="form-control" name="birthday"/>
 							<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
                 </span>
