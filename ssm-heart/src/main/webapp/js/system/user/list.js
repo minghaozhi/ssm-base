@@ -16,11 +16,11 @@ $(function() {
 			name : "账号",
 			isSort:true,
 		},  {
-			colkey : "createTime",
-			name : "时间",
+			colkey : "birthday",
+			name : "生日",
 			isSort:true,
 			renderData : function(rowindex,data, rowdata, column) {
-				return new Date(data).format("yyyy-MM-dd hh:mm:ss");
+				return new Date(data).format("yyyy-MM-dd ");
 			}
 		}, {
 			name : "操作",

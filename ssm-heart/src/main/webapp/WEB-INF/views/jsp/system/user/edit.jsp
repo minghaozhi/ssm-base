@@ -35,7 +35,7 @@
 	<form id="form" name="form" class="form-horizontal" method="post"
 		  action="${ctx}/rest/sysUser/update">
 		<input type="hidden" class="form-control checkacc"
-			value="${sysUser.id}" name="userFormMap.id" id="id">
+			value="${sysUser.id}" name="id" id="id">
 		<section class="panel panel-default">
 		<div class="panel-body">
 			<div class="form-group">
@@ -43,7 +43,7 @@
 				<div class="col-sm-9">
 					<input type="text" class="form-control"
 						placeholder="请输入用户名" value="${sysUser.realName}"
-						name="userFormMap.userName" id="userName">
+						name="realName" id="realName">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
@@ -52,7 +52,7 @@
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
 						placeholder="请输入账号" value="${sysUser.loginName}"
-						name="userFormMap.accountName" id="accountName" readonly="readonly">
+						name="loginName" id="loginName" readonly="readonly">
 				</div>
 			</div>
 
@@ -61,7 +61,7 @@
 				<div class="col-sm-9">
 					<div class="btn-group m-r">
 						<div class='input-group date' id='birthday' name="birthday">
-							<input type='text' class="form-control" value="<fmt:formatDate pattern="yyyy-MM-dd " value="${sysUser.birthday }"/>"/>
+							<input type='text'  name="birthday" class="form-control" value="<fmt:formatDate pattern="yyyy-MM-dd " value="${sysUser.birthday }"/>"/>
 							<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -74,7 +74,7 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label">年龄</label>
 				<div class="col-sm-9">
-					<input type="text" class="form-control "
+					<input type="text" class="form-control " name="age"
 						   placeholder="请输入年龄" name="age" id="age" value="${sysUser.age}">
 				</div>
 			</div>
