@@ -95,7 +95,7 @@ public class SystemLogAspect {
 			Log entityLog=getControllerMethodLogContent(joinPoint);
 			if(entityLog!=null && !entityLog.getDescription().equals("")){
 				log.setEntityInfo(entityLog.getEntityInfo());
-				log.setDescription(entityLog.getDescription());
+
 				log.setEntityType(entityLog.getEntiyType());
 				log.setEntityId(entityLog.getEntityId());
 			}

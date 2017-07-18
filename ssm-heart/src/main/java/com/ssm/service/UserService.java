@@ -1,5 +1,7 @@
 package com.ssm.service;
 
+import com.ssm.pojo.Log;
+import com.ssm.pojo.SysLog;
 import com.ssm.pojo.SysUser;
 import com.ssm.pojo.QueryVo;
 import com.ssm.util.UserFormMap;
@@ -20,9 +22,11 @@ public interface UserService {
 
 public 	List<SysUser> findUser(QueryVo<SysUser> vo);
 
-    public Integer add(SysUser sysUser,Integer flag);
+    public Integer add(SysUser sysUser,Integer flag,Log log);
 
    public  SysUser findUserById(Long id);
 
    public  List<UserFormMap> findUserPage(UserFormMap userFormMap);
+
+    public Integer update(SysUser sysUser, Integer flag, Log log);
 }

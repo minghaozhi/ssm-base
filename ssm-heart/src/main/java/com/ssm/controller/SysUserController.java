@@ -1,6 +1,8 @@
 package com.ssm.controller;
 
 import com.ssm.Log.SystemControllerLog;
+import com.ssm.pojo.Log;
+import com.ssm.pojo.SysLog;
 import com.ssm.pojo.SysUser;
 import com.ssm.pojo.QueryVo;
 import com.ssm.service.SysResourcesService;
@@ -11,6 +13,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -63,10 +66,10 @@ public class SysUserController extends BaseController{
 
     @RequestMapping(value = "addUser",method = RequestMethod.POST)
     @SystemControllerLog(description = "添加用户")
-    public ResponseEntity<MessageResult> addUser(SysUser sysUser,Integer flag){
+    public ResponseEntity<MessageResult> addUser(SysUser sysUser,Integer flag,Log log){
         MessageResult result=null;
         try {
-            Integer count = this.userService.add(sysUser,flag);
+            Integer count = this.userService.add(sysUser,flag,log);
             if(count>0){
                 result = new MessageResult(0, "添加成功！");
             }else{
@@ -149,6 +152,27 @@ public class SysUserController extends BaseController{
        mv.setViewName("/jsp/system/user/edit");
        return mv;
 
+    }
+    @ResponseBody
+    @RequestMapping(value = "update",method = RequestMethod.POST)
+    @Transactional(readOnly=false)//需要事务操作必须加入此注解
+    @SystemControllerLog(description = "修改用户")//凡需要处理业务逻辑的.都需要记录操作日志
+    public ResponseEntity<MessageResult> update(SysUser sysUser, Integer flag, Log log){
+        MessageResult result=null;
+        try {
+            Integer count = this.userService.update(sysUser,flag,log);
+            if(count>0){
+                result = new MessageResult(0, "修改成功！");
+            }else{
+                result = new MessageResult(1, "修改失败！");
+            }
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(result);
+        }catch (Exception e){
+            result = new MessageResult(1, "修改失败！");
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
 

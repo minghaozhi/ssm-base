@@ -33,7 +33,7 @@
 <body>
 	<div class="l_err" style="width: 100%; margin-top: 2px;"></div>
 	<form id="form" name="form" class="form-horizontal" method="post"
-		action="${ctx}/user/editEntity.shtml">
+		  action="${ctx}/rest/sysUser/update">
 		<input type="hidden" class="form-control checkacc"
 			value="${sysUser.id}" name="userFormMap.id" id="id">
 		<section class="panel panel-default">
@@ -61,7 +61,7 @@
 				<div class="col-sm-9">
 					<div class="btn-group m-r">
 						<div class='input-group date' id='birthday' name="birthday">
-							<input type='text' class="form-control" <fmt:formatDate value='${sysUser.birthday}' pattern='yyyy-MM-dd '/>/>
+							<input type='text' class="form-control" value="<fmt:formatDate pattern="yyyy-MM-dd " value="${sysUser.birthday }"/>"/>
 							<span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -93,6 +93,7 @@
 		</div>
 		<footer class="panel-footer text-right bg-light lter">
 		<button type="submit" class="btn btn-success btn-s-xs">保存</button>
+			<button type="button" class="btn btn-primary btn-s-xs" id="but_close">关闭</button>
 		</footer> </section>
 	</form>
 	<script type="text/javascript">

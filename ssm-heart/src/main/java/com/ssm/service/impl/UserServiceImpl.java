@@ -3,7 +3,9 @@ package com.ssm.service.impl;
 import com.github.abel533.entity.Example;
 import com.ssm.common.CryptographyUtil;
 import com.ssm.common.UserLocal;
+import com.ssm.pojo.Log;
 import com.ssm.pojo.QueryVo;
+import com.ssm.pojo.SysLog;
 import com.ssm.pojo.SysUser;
 import com.ssm.shiro.Encrypt;
 import com.ssm.util.UserFormMap;
@@ -72,7 +74,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Integer add(SysUser sysUser,Integer flag) {
+	public Integer add(SysUser sysUser,Integer flag,Log log) {
 		SysUser user= UserLocal.getUser();
 	    String	password = Encrypt.md5("123456",user.getRealName());
 	    sysUser.setPassword(password);
@@ -84,7 +86,10 @@ public class UserServiceImpl implements UserService{
 	    sysUser.setUpdateTime(new Date());
 	    sysUser.setIsActivited(0);
        Integer count=this.userMapper.insert(sysUser);
- 		return count;
+		log.setEntiyType("添加用户");
+		log.setEntityInfo("添加用户，用户的名字："+sysUser.getRealName()+"用户的昵称："+sysUser.getLoginName());
+		log.setDescription("用户添加操作");
+		return count;
 
 	}
 
@@ -97,6 +102,20 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<UserFormMap> findUserPage(UserFormMap userFormMap) {
 		return userMapper.findUserPage(userFormMap);
+	}
+
+	@Override
+	public Integer update(SysUser sysUser, Integer flag, Log log) {
+		SysUser user=UserLocal.getUser();
+		sysUser.setUpdateBy(user.getId());
+		sysUser.setUpdateName(user.getRealName());
+		sysUser.setUpdateTime(new Date());
+		Integer count=this.userMapper.updateByPrimaryKeySelective(sysUser);
+		log.setEntiyType("修改用户");
+		log.setEntityInfo("修改用户，用户的名字："+sysUser.getRealName()+"用户的昵称："+sysUser.getLoginName());
+		log.setDescription("用户修改操作");
+		return count;
+
 	}
 
 }

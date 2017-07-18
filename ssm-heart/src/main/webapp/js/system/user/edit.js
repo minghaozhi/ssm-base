@@ -32,4 +32,7 @@ $(function() {
 			$(".l_err").css('display', 'none');
 		}
 	});
+	$("#but_close").click(function(){
+        layer.close(parent.pageii);
+	})
 });

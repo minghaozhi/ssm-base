@@ -60,7 +60,7 @@ function editAccount() {
 	pageii = layer.open({
 		title : "编辑",
 		type : 2,
-		area : [ "600px", "50%" ],
+		area : [ "600px", "48%" ],
 		content : '/rest/sysUser/editUI?id=' + cbox
 	});
 }
