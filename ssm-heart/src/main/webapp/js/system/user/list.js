@@ -5,9 +5,6 @@ $(function() {
 	grid = lyGrid({
 		pagId : 'paging',
 		l_column : [ {
-			colkey : "id",
-			name : "id",
-		}, {
 			colkey : "realName",
 			name : "用户名",
 			isSort:true,
@@ -15,7 +12,17 @@ $(function() {
 			colkey : "loginName",
 			name : "账号",
 			isSort:true,
-		},  {
+		},
+            {
+                colkey : "age",
+                name : "年龄",
+                isSort:true,
+            },
+            {
+                colkey : "sex",
+                name : "性别",
+                isSort:true,
+            },{
 			colkey : "birthday",
 			name : "生日",
 			isSort:true,
