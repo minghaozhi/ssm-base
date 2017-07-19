@@ -3,6 +3,7 @@ package com.ssm.controller;
 import com.ssm.mapper.SysResourcesMapper;
 import com.ssm.service.SysResourcesService;
 import com.ssm.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,15 +20,15 @@ import java.util.List;
 @RequestMapping("sysResources")
 public class SysResourcesController extends  BaseController{
 
-    @Inject
-    private SysResourcesMapper sysResourcesMapper;
+    @Autowired
+    private SysResourcesService sysResourcesService;
     @ResponseBody
     @RequestMapping("treelists")
     public ResFormMap findByPage(Model model) {
         ResFormMap resFormMap = getFormMap(ResFormMap.class);
         String order = " order by level asc";
         resFormMap.put("$orderby", order);
-        List<ResFormMap> mps = sysResourcesMapper.findByNames(resFormMap);
+        List<ResFormMap> mps = sysResourcesService.findByNames(resFormMap);
         List<TreeObject> list = new ArrayList<TreeObject>();
         for (ResFormMap map : mps) {
             TreeObject ts = new TreeObject();
