@@ -1,10 +1,12 @@
 package com.ssm.util;
 
+
+
 /**
  * 菜单实体表
  */
-@TableSeg(tableName = "sys_resources", id="id")
-public class ResFormMap extends FormMap<String,Object>{
+@TableSeg(tableName = "sys_res_user", id="id")
+public class ResUserFormMap extends FormMap<String,Object>{
 
 	/**
 	 *@descript

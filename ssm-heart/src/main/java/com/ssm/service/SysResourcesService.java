@@ -1,7 +1,7 @@
 package com.ssm.service;
 
-import com.ssm.pojo.SysResources;
 import com.ssm.util.ResFormMap;
+import com.ssm.util.ResUserFormMap;
 
 import java.util.List;
 
@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface SysResourcesService {
     List<ResFormMap> findByUserId(ResFormMap map);
+
+   public  List<ResFormMap> findByNames(ResFormMap resFormMap);
 }

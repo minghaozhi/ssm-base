@@ -191,8 +191,8 @@ function sub(){
 	$.ajax({
 		type : "POST",
 		data : {
-			"resFormMap.userId" : "${param.userId}",
-			"resFormMap.roleId" : "${param.roleId}"
+			"resUserFormMap.userId" : "${param.userId}",
+			"resUserFormMap.roleId" : "${param.roleId}"
 		},
 		url : rootPath + '/resources/findRes.shtml',
 		dataType : 'json',

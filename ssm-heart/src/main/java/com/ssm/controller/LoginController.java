@@ -4,13 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ssm.common.UserLocal;
-import com.ssm.pojo.SysResources;
 import com.ssm.service.SysResUserService;
 import com.ssm.service.SysResourcesService;
-import com.ssm.util.Common;
-import com.ssm.util.ResFormMap;
-import com.ssm.util.TreeObject;
-import com.ssm.util.TreeUtil;
+import com.ssm.util.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -25,7 +21,6 @@ import com.ssm.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("login")
@@ -74,7 +69,7 @@ private SysResourcesService sysResourcesService;
            //根据用户id查询用户菜单表
 			ResFormMap resFormMap = new ResFormMap();
 			resFormMap.put("userId", String.valueOf(user.getId()));
-			List<ResFormMap> resFormMaps=this.sysResourcesService.findByUserId(resFormMap);
+			List<ResFormMap> resFormMaps =this.sysResourcesService.findByUserId(resFormMap);
 			List<TreeObject> list = new ArrayList<TreeObject>();
 			for (ResFormMap map : resFormMaps) {
 				TreeObject ts = new TreeObject();

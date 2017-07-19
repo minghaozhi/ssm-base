@@ -36,7 +36,7 @@ $(function() {
 			width : "100px",
 			name : "描述"
 		} ],
-		jsonUrl : rootPath + '/resources/treelists.shtml',
+		jsonUrl : rootPath + '/sysResources/treelists',
 		checkbox : true,
 		usePage : false,
 		records : "treelists",

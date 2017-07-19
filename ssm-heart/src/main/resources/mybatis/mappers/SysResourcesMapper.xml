@@ -39,4 +39,12 @@ WHERE id IN
     order by level asc
   </if>
 </select>
+
+  <select id="findByNames" resultType="com.ssm.util.ResFormMap">
+    select
+    <include refid="selectId" />
+    from sys_user
+    where 1 = 1
+
+  </select>
 </mapper>
