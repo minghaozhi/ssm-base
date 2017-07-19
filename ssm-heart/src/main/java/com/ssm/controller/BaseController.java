@@ -62,9 +62,9 @@ public class BaseController {
 		resQueryForm.put("parentId", id);
 		resQueryForm.put("userId",String.valueOf( sysUser.getId()));
 		List<ResFormMap> rse = sysResourcesMapper.findByUserId(resQueryForm);
-		//List<ResFormMap> rse = resourcesMapper.findByAttribute("parentId", id, ResFormMap.class);
+		//List<ResUserFormMap> rse = resourcesMapper.findByAttribute("parentId", id, ResUserFormMap.class);
 		for (ResFormMap resFormMap : rse) {
-			Object o =resFormMap.get("description");
+			Object o = resFormMap.get("description");
 			if(o!=null&&!Common.isEmpty(o.toString())){
 				resFormMap.put("description",Common.stringtohtml(o.toString()));
 			}

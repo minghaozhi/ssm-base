@@ -35,7 +35,7 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">菜单名称</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入菜单名称" name="resFormMap.name" id="name">
+						placeholder="请输入菜单名称" name="resUserFormMap.name" id="name">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
@@ -43,7 +43,7 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">菜单标识</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入菜单标识" name="resFormMap.resKey" id="resKey">
+						placeholder="请输入菜单标识" name="resUserFormMap.resKey" id="resKey">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
@@ -51,14 +51,14 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">菜单url</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入菜单url" name="resFormMap.resUrl" id="resUrl">
+						placeholder="请输入菜单url" name="resUserFormMap.resUrl" id="resUrl">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">上级菜单</label>
 				<div class="col-sm-9">
-					<select id="parentId" name="resFormMap.parentId" class="form-control m-b"
+					<select id="parentId" name="resUserFormMap.parentId" class="form-control m-b"
 						tabindex="-1">
 					</select>
 				</div>
@@ -67,7 +67,7 @@ label[class^="btn btn-default"] {
 			<div class="form-group">
 				<label class="col-sm-3 control-label">菜单类型</label>
 				<div class="col-sm-9">
-						<select id="type" name="resFormMap.type" class="form-control m-b"
+						<select id="type" name="resUserFormMap.type" class="form-control m-b"
 							tabindex="-1" onchange="but(this)">
 							<option value="0">------  目录  ------</option>
 							<option value="1">------  菜单  ------</option>
@@ -87,14 +87,14 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">图标</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入icon" name="resFormMap.icon" id="icon">
+						placeholder="请输入icon" name="resUserFormMap.icon" id="icon">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">是否隐藏</label>
 				<div class="col-sm-9">
-					<input id="gritter-light" type="checkbox" name="resFormMap.ishide" id="ishide" class="ace ace-switch ace-switch-5" value="1">
+					<input id="gritter-light" type="checkbox" name="resUserFormMap.ishide" id="ishide" class="ace ace-switch ace-switch-5" value="1">
 				</div>
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
@@ -102,7 +102,7 @@ label[class^="btn btn-default"] {
 				<label class="col-sm-3 control-label">菜单描述</label>
 				<div class="col-sm-9">
 					<input type="text" class="form-control checkacc"
-						placeholder="请输入菜单描述" name="resFormMap.description" id="description">
+						placeholder="请输入菜单描述" name="resUserFormMap.description" id="description">
 				</div>
 			</div>
 		</div>
