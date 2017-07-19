@@ -6,8 +6,7 @@ import java.util.List;
 /**
  * 这个是列表树形式显示的实体,
  * 这里的字段是在前台显示所有的,可修改
- * @author numberONe
- * date：2014-11-20
+
  */
 public class TreeObject {
 	private Integer id;
