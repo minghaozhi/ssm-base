@@ -138,6 +138,15 @@ public class UserServiceImpl implements UserService{
 		return count;
 	}
 
+	@Override
+	public List<SysUser> findAll() {
+		Example example=new Example(SysUser.class);
+		Example.Criteria criteria=example.createCriteria();
+		criteria.andEqualTo("isActivited",0);
+		List<SysUser> list=this.userMapper.selectByExample(example);
+		return list;
+	}
+
 	public Integer deleteById(Long id, Log log) {
 
 		SysUser sysUser=this.userMapper.selectByPrimaryKey(id);

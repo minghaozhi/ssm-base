@@ -19,9 +19,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 墨殇 on 2017/5/19.
@@ -217,6 +221,22 @@ public class SysUserController extends BaseController{
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(result);
+    }
+
+
+    @RequestMapping("export")
+    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String fileName = "用户列表";
+        UserFormMap userFormMap = findHasHMap(UserFormMap.class);
+        String exportData = userFormMap.getStr("exportData");// 列表头的json字符串
+
+        List<Map<String, Object>> listMap = JsonUtils.parseJSONList(exportData);
+        String endNumber="";
+        String startNumber="";
+        userFormMap.put("endNumber", endNumber);
+        userFormMap.put("startNumber", startNumber);
+        List<UserFormMap> lis = userService.findUserPage(userFormMap);
+        POIUtils.exportToExcel(response, listMap, lis, fileName);
     }
 
 }

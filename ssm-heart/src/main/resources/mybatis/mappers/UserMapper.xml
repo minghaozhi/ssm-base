@@ -43,7 +43,9 @@
         <if test="column != null">
             order by ${column} ${sort}
         </if>
+        <if test="startNumber != null and startNumber != '' and endNumber != null and endNumber != ''">
         limit ${startNumber},${endNumber}
+        </if>
     </select>
 
 

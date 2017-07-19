@@ -12,7 +12,7 @@
 					name="userFormMap.loginName">
 			</div>
 			<a href="javascript:void(0)" class="btn btn-default" id="search">查询</a>
-			<a href="javascript:grid.exportData('/user/export.shtml')" class="btn btn-info" id="search">导出excel</a>
+			<a href="javascript:grid.exportData('${ctx}/rest/sysUser/export')" class="btn btn-info" id="export">导出excel</a>
 		</form>
 	</div>
 	<header class="panel-heading">

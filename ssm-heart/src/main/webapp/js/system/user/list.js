@@ -22,11 +22,6 @@ $(function() {
 			renderData : function(rowindex,data, rowdata, column) {
 				return new Date(data).format("yyyy-MM-dd ");
 			}
-		}, {
-			name : "操作",
-			renderData : function( rowindex ,data, rowdata, colkeyn) {
-				return "测试渲染函数";
-			}
 		} ],
 		jsonUrl : '/rest/sysUser/findByPage',
 		checkbox : true,
