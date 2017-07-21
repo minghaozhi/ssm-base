@@ -20,15 +20,15 @@ import java.util.List;
 @RequestMapping("sysResources")
 public class SysResourcesController extends  BaseController{
 
-    @Autowired
-    private SysResourcesService sysResourcesService;
+    @Inject
+    private SysResourcesMapper sysResourcesMapper;
     @ResponseBody
     @RequestMapping("treelists")
-    public ResFormMap findByPage(Model model) {
+    public ResFormMap findByPage() {
         ResFormMap resFormMap = getFormMap(ResFormMap.class);
         String order = " order by level asc";
         resFormMap.put("$orderby", order);
-        List<ResFormMap> mps = sysResourcesService.findByNames(resFormMap);
+        List<ResFormMap> mps = sysResourcesMapper.findByNames(resFormMap);
         List<TreeObject> list = new ArrayList<TreeObject>();
         for (ResFormMap map : mps) {
             TreeObject ts = new TreeObject();

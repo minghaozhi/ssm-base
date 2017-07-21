@@ -40,19 +40,19 @@ WHERE id IN
   </if>
 </select>
 
-  <!--<select id="findByNames" resultType="com.ssm.util.ResFormMap">-->
-    <!--select  id,-->
-    <!--description,-->
-    <!--ishide,-->
-    <!--icon,-->
-    <!--LEVEL,-->
-    <!--resUrl,-->
-    <!--TYPE,-->
-    <!--resKey,-->
-    <!--parentId,-->
-    <!--NAME-->
-    <!--from sys_resources-->
-    <!--where 1 = 1-->
+  <select id="findByNames" resultType="com.ssm.util.ResFormMap">
+    select  id,
+    description,
+    ishide,
+    icon,
+    LEVEL,
+    resUrl,
+    TYPE,
+    resKey,
+    parentId,
+    NAME
+    from sys_resources
+    where 1 = 1
 
-  <!--</select>-->
+  </select>
 </mapper>

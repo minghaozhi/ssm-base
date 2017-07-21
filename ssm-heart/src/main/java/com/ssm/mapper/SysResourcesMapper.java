@@ -17,4 +17,5 @@ public interface SysResourcesMapper extends BaseMapper{
 
    public  List<ResUserFormMap> findRes(ResUserFormMap resQueryForm);
 
+
 }
